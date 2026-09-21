@@ -1,0 +1,17 @@
+# Dépendances
+node_modules/
+
+# Fichiers locaux / outils
+.claude/
+.DS_Store
+Thumbs.db
+*.log
+
+# Documents de travail privés (contrats, création d'entreprise, scripts…) — NE JAMAIS publier
+_dev/
+
+# Fichiers en attente de suppression définitive
+_a_supprimer/
+
+# Images sources brutes (intégrées en WebP dans assets/img/)
+demos/img/

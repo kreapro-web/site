@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 120" role="img" aria-label="KréaPro — Agence Web &amp; Design à La Réunion">
+  <title>KréaPro — logo horizontal</title>
+  <!-- Le mot est en texte (Poppins Bold / Inter). Pour l'impression ou tout usage hors web,
+       ouvrir ce fichier dans un logiciel vectoriel et convertir le texte en tracés (« vectoriser »). -->
+  <g>
+    <rect width="120" height="120" rx="30" fill="#3D0B37"/>
+    <path d="M40 20L40 100" fill="none" stroke="#F3F9D2" stroke-width="13" stroke-linecap="round"/>
+    <path d="M40 66L76 100" fill="none" stroke="#F3F9D2" stroke-width="13" stroke-linecap="round"/>
+    <path d="M41 67C47 45 66 27 91 23C85 46 68 62 47 69Z" fill="#C0D684"/>
+    <path d="M44 67C55 55 73 38 86 26" fill="none" stroke="#F3F9D2" stroke-width="3.4" stroke-linecap="round"/>
+  </g>
+  <text x="150" y="68" font-family="Poppins, 'Trebuchet MS', Verdana, sans-serif" font-weight="700" font-size="52" letter-spacing="-0.5" fill="#3D0B37">Kréa<tspan fill="#63264A">Pro</tspan></text>
+  <text x="152" y="90" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="10.5" letter-spacing="2.3" fill="#63264A">AGENCE WEB &amp; DESIGN — LA RÉUNION</text>
+</svg>

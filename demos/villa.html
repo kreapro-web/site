@@ -1,0 +1,854 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa Bleu Lagon — Villa d'hôtes à Saint-Leu | Réservation</title>
+  <meta name="description" content="Villa d'hôtes de luxe à Saint-Leu, La Réunion. Piscine à débordement, chambres tout confort, réservation en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="canonical" href="https://kreapro.re/demos/villa.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kreapro.re/demos/villa.html" />
+  <meta property="og:title" content="Villa Bleu Lagon — Villa d'hôtes à Saint-Leu | Réservation" />
+  <meta property="og:description" content="Villa d'hôtes de luxe à Saint-Leu, La Réunion. Piscine à débordement, chambres tout confort, réservation en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta property="og:image" content="https://kreapro.re/assets/img/og/demo-villa.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="KréaPro — Agence Web &amp; Design à La Réunion" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Villa Bleu Lagon — Villa d'hôtes à Saint-Leu | Réservation" />
+  <meta name="twitter:description" content="Villa d'hôtes de luxe à Saint-Leu, La Réunion. Piscine à débordement, chambres tout confort, réservation en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="twitter:image" content="https://kreapro.re/assets/img/og/demo-villa.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#0E1428" />
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#F0A202',
+            orange: '#F18805',
+            red: '#D95D39',
+            dark: '#0E1428',
+            green: '#7B9E89',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delay': 'float 7s ease-in-out infinite 1s',
+            'zoom-slow': 'zoom 20s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-20px) rotate(2deg)' },
+            },
+            zoom: {
+              '0%': { transform: 'scale(1)' },
+              '100%': { transform: 'scale(1.12)' },
+            },
+          }
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #fcf8f3; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    }
+    .glass-dark {
+      background: rgba(14, 20, 40, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-luxe {
+      background: linear-gradient(135deg, #F0A202 0%, #F18805 50%, #D95D39 100%);
+      transition: all 0.3s ease;
+      background-size: 200% 200%;
+    }
+    .btn-luxe:hover {
+      background-position: right center;
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(240, 162, 2, 0.3);
+    }
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(240, 162, 2, 0.3);
+      padding: 12px 16px;
+      display: none;
+    }
+    @media (max-width: 767px) { .sticky-cta { display: block; } }
+
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: block; }
+
+    .input-luxe {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(240, 162, 2, 0.3);
+      transition: all 0.3s ease;
+    }
+    .input-luxe:focus {
+      border-color: #F0A202;
+      box-shadow: 0 0 0 4px rgba(240, 162, 2, 0.1);
+      background: white;
+    }
+
+    /* ===== CARROUSEL (réduit) ===== */
+    .carousel-wrapper {
+      max-width: 1200px;
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: #0E1428;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+      height: 60vh;
+      min-height: 350px;
+      position: relative;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,20,40,0.9) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem 1.5rem 2rem;
+      color: white;
+    }
+    .carousel-overlay h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      color: #F0A202;
+    }
+    .carousel-overlay p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 0.3rem;
+    }
+    .carousel-overlay .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.3rem 0;
+    }
+    .carousel-overlay .tags span {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .carousel-overlay .price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #F0A202;
+    }
+    .carousel-overlay .btn-detail {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.4rem 1.4rem;
+      background: rgba(240, 162, 2, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(240, 162, 2, 0.5);
+      border-radius: 40px;
+      color: #fff;
+      font-weight: 500;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-size: 0.8rem;
+      align-self: flex-start;
+    }
+    .carousel-overlay .btn-detail:hover {
+      background: #F0A202;
+      border-color: #F0A202;
+      transform: scale(1.02);
+      color: #0E1428;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+    .carousel-btn:hover {
+      background: rgba(240, 162, 2, 0.7);
+      border-color: #F0A202;
+    }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+    }
+    .carousel-dots button {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+    .carousel-dots button.active {
+      background: #F0A202;
+      border-color: #F0A202;
+      transform: scale(1.2);
+    }
+
+    @media (min-width: 768px) {
+      .carousel-slide { height: 55vh; }
+      .carousel-overlay { padding: 2rem 2.5rem 2.5rem; }
+      .carousel-overlay h3 { font-size: 2.4rem; }
+      .carousel-btn { width: 48px; height: 48px; font-size: 1.8rem; }
+    }
+    @media (min-width: 1024px) {
+      .carousel-slide { height: 50vh; }
+      .carousel-overlay h3 { font-size: 2.8rem; }
+    }
+
+    /* Section contact deux colonnes */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .contact-info {
+      background: rgba(14, 20, 40, 0.05);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(240, 162, 2, 0.2);
+    }
+    .contact-form {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(240, 162, 2, 0.3);
+    }
+
+    /* ===== DEMANDE DE SÉJOUR : formulaire compact ===== */
+    .demande-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 640px) {
+      .demande-grid { grid-template-columns: 1fr; }
+    }
+    .demande-full {
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+
+<body id="top" class="text-dark antialiased font-sans overflow-x-hidden">
+<!-- Bandeau retour vers le portfolio -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:#0E1428;color:#F3F9D2;font-family:Inter,system-ui,sans-serif;">
+    <div style="max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.65rem 1.5rem;font-size:0.875rem;font-weight:600;">
+      <a href="../portfolio.html" style="color:#F3F9D2;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">&larr; Retour au portfolio</a>
+      <a href="../projets/villa-bleu-lagon.html" style="color:#C9E4A6;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">Voir l&rsquo;étude de cas&nbsp;&rarr;</a>
+    </div>
+  </div>
+  <script>document.body.style.paddingTop="52px";</script>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur-md shadow-sm border-b border-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <a href="#top" class="text-2xl font-serif font-bold tracking-tight text-dark flex items-center gap-2">
+        <span class="text-3xl text-gold">✦</span>
+        Villa Bleu Lagon
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-dark/80">
+        <a href="#villa" class="hover:text-gold transition border-b-2 border-transparent hover:border-gold pb-1">La Villa</a>
+        <a href="#chambres" class="hover:text-gold transition border-b-2 border-transparent hover:border-gold pb-1">Chambres</a>
+        <a href="#saintleu" class="hover:text-gold transition border-b-2 border-transparent hover:border-gold pb-1">Saint‑Leu</a>
+        <a href="#temoignages" class="hover:text-gold transition border-b-2 border-transparent hover:border-gold pb-1">Avis</a>
+        <a href="#contact" class="hover:text-gold transition border-b-2 border-transparent hover:border-gold pb-1">Contact</a>
+        <a href="#demande" class="btn-luxe text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg transition">
+          Réserver ✦
+        </a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gold/10 transition" aria-label="Menu">
+        <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden bg-white/95 backdrop-blur-md border-t border-gold/10 px-4 py-4 space-y-3 text-sm font-medium mobile-menu">
+      <a href="#villa" class="block hover:text-gold transition">La Villa</a>
+      <a href="#chambres" class="block hover:text-gold transition">Chambres</a>
+      <a href="#saintleu" class="block hover:text-gold transition">Saint‑Leu</a>
+      <a href="#temoignages" class="block hover:text-gold transition">Avis</a>
+      <a href="#contact" class="block hover:text-gold transition">Contact</a>
+      <a href="#demande" class="block btn-luxe text-white text-center px-5 py-2.5 rounded-full font-semibold">Réserver ✦</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img src="../assets/img/demos/villa-hero.webp" alt="Villa Bleu Lagon" class="w-full h-full object-cover animate-zoom-slow" width="1376" height="768" />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center text-white py-20 z-10 reveal">
+      <div class="inline-block mb-6 px-5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-gold/40 text-xs font-medium tracking-widest uppercase shadow-2xl">
+        ⭐ Élégance & Confort · 5 étoiles
+      </div>
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold leading-tight drop-shadow-2xl">
+        Une échappée <br />
+        <span class="text-gold italic">au cœur du lagon</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto font-light tracking-wide drop-shadow-lg">
+        Entre luxe discret et nature préservée, vivez une expérience unique à Saint‑Leu.
+      </p>
+      <div class="mt-10 glass-card rounded-2xl p-6 inline-block w-full max-w-3xl mx-auto">
+        <form id="quickSearch" class="flex flex-wrap items-end justify-center gap-4 text-dark">
+          <div class="flex-1 min-w-[140px] text-left">
+            <label for="champ-1" class="block text-xs font-semibold uppercase tracking-wider text-dark/60">Arrivée</label>
+            <input id="champ-1" type="date" class="w-full px-4 py-3 rounded-xl input-luxe text-sm" />
+          </div>
+          <div class="flex-1 min-w-[140px] text-left">
+            <label for="champ-2" class="block text-xs font-semibold uppercase tracking-wider text-dark/60">Départ</label>
+            <input id="champ-2" type="date" class="w-full px-4 py-3 rounded-xl input-luxe text-sm" />
+          </div>
+          <div class="flex-1 min-w-[100px] text-left">
+            <label for="champ-3" class="block text-xs font-semibold uppercase tracking-wider text-dark/60">Voyageurs</label>
+            <input id="champ-3" type="number" min="1" max="10" value="2" class="w-full px-4 py-3 rounded-xl input-luxe text-sm" />
+          </div>
+          <div class="w-full sm:w-auto">
+            <button type="submit" class="w-full btn-luxe text-white px-8 py-3 rounded-xl font-semibold shadow-lg transition">
+              Vérifier ✦
+            </button>
+          </div>
+        </form>
+      </div>
+      <p class="mt-6 text-sm text-white/50 flex items-center justify-center gap-1">
+        <span>✨ Réservation directe · Meilleur tarif garanti</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== VALEURS ==================== -->
+  <section id="villa" class="py-24 relative bg-white/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-[0.3em]">— L'Art de vivre —</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-dark mt-2">
+          Une villa, <span class="text-orange">trois promesses</span>
+        </h2>
+        <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="glass-card rounded-3xl p-8 text-center transition-all duration-500 hover:shadow-2xl hover:border-gold/50 reveal" style="transition-delay: 0.1s;">
+          <div class="w-28 h-28 mx-auto mb-6 rounded-full shadow-xl overflow-hidden border-4 border-white/80 animate-float">
+            <img src="../assets/img/demos/villa-valeur-1.webp" alt="Piscine" class="w-full h-full object-cover" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="font-serif text-2xl font-semibold text-dark">Piscine & Vue</h3>
+          <p class="mt-2 text-dark/60 text-sm leading-relaxed">Piscine à débordement face au lagon, pour des moments d'éternité.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-8 text-center transition-all duration-500 hover:shadow-2xl hover:border-gold/50 reveal" style="transition-delay: 0.2s;">
+          <div class="w-28 h-28 mx-auto mb-6 rounded-full shadow-xl overflow-hidden border-4 border-white/80 animate-float-delay">
+            <img src="../assets/img/demos/villa-valeur-2.webp" alt="Proximité" class="w-full h-full object-cover" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="font-serif text-2xl font-semibold text-dark">Proximité Immédiate</h3>
+          <p class="mt-2 text-dark/60 text-sm leading-relaxed">À 2 minutes du lagon et du centre, pieds nus dans le sable.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-8 text-center transition-all duration-500 hover:shadow-2xl hover:border-gold/50 reveal" style="transition-delay: 0.3s;">
+          <div class="w-28 h-28 mx-auto mb-6 rounded-full shadow-xl overflow-hidden border-4 border-white/80 animate-float" style="animation-delay: 0.5s;">
+            <img src="../assets/img/demos/villa-valeur-3.webp" alt="Confort" class="w-full h-full object-cover" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="font-serif text-2xl font-semibold text-dark">Confort & Intimité</h3>
+          <p class="mt-2 text-dark/60 text-sm leading-relaxed">Chambres spacieuses, literie d'exception et écrin de sérénité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARROUSEL (réduit) ==================== -->
+  <section id="chambres" class="py-12 bg-dark">
+    <div class="text-center mb-6 px-4">
+      <span class="text-gold text-sm font-semibold uppercase tracking-[0.3em]">— Nos Écrins —</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-2">Chambres & Suites</h2>
+      <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+      <p class="mt-2 text-white/60">Découvrez nos refuges d'exception en images</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Slide 1 -->
+          <div class="carousel-slide">
+            <img src="../assets/img/demos/villa-chambre-1.webp" alt="Suite Lagon" width="1200" height="896" loading="lazy" decoding="async" />
+            <div class="carousel-overlay">
+              <h3>Suite Lagon</h3>
+              <p>2 adultes · 35 m² · Vue mer</p>
+              <div class="tags">
+                <span>Lit King size</span>
+                <span>Climatisation</span>
+                <span>Terrasse privée</span>
+              </div>
+              <div class="price">À partir de 250€ / nuit</div>
+              <a href="#demande" class="btn-detail">Découvrir →</a>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <img src="../assets/img/demos/villa-chambre-2.webp" alt="Chambre Jardin" width="1200" height="896" loading="lazy" decoding="async" />
+            <div class="carousel-overlay">
+              <h3>Chambre Jardin</h3>
+              <p>2 adultes + 1 enfant · 28 m²</p>
+              <div class="tags">
+                <span>Lit double</span>
+                <span>Ventilateur</span>
+                <span>Accès piscine</span>
+              </div>
+              <div class="price">À partir de 180€ / nuit</div>
+              <a href="#demande" class="btn-detail">Découvrir →</a>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <img src="../assets/img/demos/villa-chambre-3.webp" alt="Suite Famille" width="1200" height="896" loading="lazy" decoding="async" />
+            <div class="carousel-overlay">
+              <h3>Suite Famille</h3>
+              <p>4 adultes · 50 m²</p>
+              <div class="tags">
+                <span>2 chambres</span>
+                <span>Cuisine équipée</span>
+                <span>Salon</span>
+              </div>
+              <div class="price">À partir de 320€ / nuit</div>
+              <a href="#demande" class="btn-detail">Découvrir →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flèches -->
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Précédent">‹</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Suivant">›</button>
+
+        <!-- Dots -->
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SAINT-LEU ==================== -->
+  <section id="saintleu" class="py-24 bg-white/50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 reveal">
+          <span class="text-gold text-sm font-semibold uppercase tracking-[0.3em]">— Aventure & Douceur —</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-dark mt-2 leading-tight">
+            Vivez <span class="text-orange">Saint‑Leu</span>
+          </h2>
+          <div class="w-24 h-1 bg-gold mt-4 mb-6"></div>
+          <p class="text-dark/70 leading-relaxed text-lg">
+            Entre lagon turquoise et montagnes majestueuses, Saint‑Leu est un terrain de jeu d'exception.
+            Du parapente à la plongée, en passant par les marchés créoles, chaque instant est une invitation à l'évasion.
+          </p>
+          <ul class="mt-6 space-y-3 text-dark/80">
+            <li class="flex items-center gap-3"><span class="text-gold text-2xl">✦</span> Parapente au-dessus de la côte sauvage</li>
+            <li class="flex items-center gap-3"><span class="text-gold text-2xl">✦</span> Plongée dans la réserve marine protégée</li>
+            <li class="flex items-center gap-3"><span class="text-gold text-2xl">✦</span> Gastronomie créole et marchés authentiques</li>
+          </ul>
+          <a href="#demande" class="mt-8 inline-block btn-luxe text-white px-8 py-3.5 rounded-full font-semibold shadow-xl transition">
+            Réserver votre séjour ✦
+          </a>
+        </div>
+        <div class="lg:w-1/2 reveal" style="transition-delay: 0.2s;">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
+            <img src="../assets/img/demos/villa-quartier.webp" alt="Saint-Leu Lagon" class="w-full h-[400px] object-cover transition-transform duration-700 hover:scale-105" width="1376" height="768" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ==================== TÉMOIGNAGES ==================== -->
+  <section id="temoignages" class="py-24 relative overflow-hidden">
+    <!-- Image de fond (bien visible) -->
+    <div class="absolute inset-0 -z-10">
+      <img src="../assets/img/demos/villa-ambiance.webp" alt="Ambiance villa" class="w-full h-full object-cover" width="1376" height="768" loading="lazy" decoding="async" />
+      <div class="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
+      <!-- Overlay pour renforcer la lisibilité, mais l'image reste présente -->
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-[0.3em]">— Ils nous font confiance —</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-dark mt-2">Témoignages</h2>
+        <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card p-8 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition duration-500 reveal">
+          <div class="flex text-gold text-2xl">✦✦✦✦✦</div>
+          <p class="mt-4 text-dark/80 italic leading-relaxed">"Un véritable paradis terrestre. La vue est à couper le souffle et le service d'une élégance rare."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-green/20 flex items-center justify-center text-dark font-bold">SM</div>
+            <div><p class="font-semibold text-dark">Sophie & Marc</p><p class="text-xs text-dark/50">Séjour en amoureux</p></div>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition duration-500 reveal" style="transition-delay: 0.15s;">
+          <div class="flex text-gold text-2xl">✦✦✦✦✦</div>
+          <p class="mt-4 text-dark/80 italic leading-relaxed">"La piscine à débordement, les couchers de soleil... Un sans-faute. Nous reviendrons sans hésiter."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-orange/20 flex items-center justify-center text-dark font-bold">JP</div>
+            <div><p class="font-semibold text-dark">Jean‑Philippe</p><p class="text-xs text-dark/50">Voyageur solo</p></div>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition duration-500 reveal" style="transition-delay: 0.3s;">
+          <div class="flex text-gold text-2xl">✦✦✦✦✦</div>
+          <p class="mt-4 text-dark/80 italic leading-relaxed">"Les chambres sont spacieuses, le calme absolu. Une adresse précieuse pour les familles."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-red/20 flex items-center justify-center text-dark font-bold">ET</div>
+            <div><p class="font-semibold text-dark">Élodie & Thibault</p><p class="text-xs text-dark/50">Famille avec enfants</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT (deux colonnes) ==================== -->
+  <section id="contact" class="py-24 bg-sable/50 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-[0.3em]">— Restons en contact —</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-dark mt-2">Contactez-nous</h2>
+        <div class="w-24 h-1 bg-gold mx-auto mt-4"></div>
+        <p class="mt-4 text-dark/60">Une question ? Une demande particulière ? Écrivez-nous, nous vous répondons rapidement.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <!-- Colonne gauche : infos -->
+        <div class="contact-info flex flex-col justify-center space-y-6">
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-dark">Villa Bleu Lagon</h3>
+            <p class="text-dark/60 mt-1">Saint‑Leu, La Réunion</p>
+            <p class="text-dark/60">📍 À 2 min du lagon</p>
+          </div>
+          <div>
+            <p class="flex items-center gap-2"><span class="text-gold text-xl">📞</span> <a href="tel:+262692123456" class="hover:text-gold transition">+262 692 12 34 56</a></p>
+            <p class="flex items-center gap-2"><span class="text-gold text-xl">✉️</span> <a href="mailto:contact@villableulagon.re" class="hover:text-gold transition">contact@villableulagon.re</a></p>
+            <p class="flex items-center gap-2"><span class="text-gold text-xl">💬</span> WhatsApp 24/7</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-dark">Horaires d'accueil</h4>
+            <p class="text-dark/60 text-sm">Lun - Sam : 8h - 20h</p>
+            <p class="text-dark/60 text-sm">Dimanche : 9h - 18h</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-dark">Suivez-nous</h4>
+            <div class="flex gap-4 mt-2 text-3xl">
+              <span class="hover:text-gold transition cursor-pointer">📷</span>
+              <span class="hover:text-gold transition cursor-pointer">📘</span>
+              <span class="hover:text-gold transition cursor-pointer">🐦</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne droite : formulaire -->
+        <div class="contact-form">
+          <h3 class="font-serif text-2xl font-bold text-dark mb-4">Envoyez-nous un message</h3>
+          <form id="contactForm" class="space-y-4">
+            <div>
+              <label for="champ-4" class="block text-sm font-medium text-dark/70">Nom complet</label>
+              <input id="champ-4" type="text" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="Votre nom" required />
+            </div>
+            <div>
+              <label for="champ-5" class="block text-sm font-medium text-dark/70">Email</label>
+              <input id="champ-5" type="email" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="votre@email.com" required />
+            </div>
+            <div>
+              <label for="champ-6" class="block text-sm font-medium text-dark/70">Message</label>
+              <textarea id="champ-6" rows="4" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="w-full btn-luxe text-white py-3.5 rounded-xl font-semibold shadow-lg transition text-lg">
+              Envoyer ✦
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DEMANDE DE SÉJOUR (compact, sans scroll) ==================== -->
+  <section id="demande" class="py-12 relative bg-dark/5 overflow-hidden">
+    <!-- Image d'ambiance en fond -->
+    <div class="absolute inset-0 -z-10 opacity-10">
+      <img src="../assets/img/demos/villa-exterieur.webp" alt="" class="w-full h-full object-cover" width="1200" height="896" loading="lazy" decoding="async" />
+    </div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center mb-6 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-[0.3em]">— Votre séjour —</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-dark mt-1">Demande de séjour</h2>
+        <div class="w-16 h-1 bg-gold mx-auto mt-3"></div>
+        <p class="mt-2 text-dark/60 text-sm">Remplissez le formulaire, nous vous répondons sous 24h.</p>
+      </div>
+
+      <form id="bookingForm" class="glass-card p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/60 reveal">
+        <div class="demande-grid">
+          <!-- Arrivée -->
+          <div>
+            <label for="champ-7" class="block text-sm font-medium text-dark/70">Arrivée</label>
+            <input id="champ-7" type="date" class="w-full px-4 py-3 rounded-xl input-luxe" required />
+          </div>
+          <!-- Départ -->
+          <div>
+            <label for="champ-8" class="block text-sm font-medium text-dark/70">Départ</label>
+            <input id="champ-8" type="date" class="w-full px-4 py-3 rounded-xl input-luxe" required />
+          </div>
+          <!-- Voyageurs (pleine largeur sur mobile) -->
+          <div class="demande-full">
+            <label for="champ-9" class="block text-sm font-medium text-dark/70">Nombre de voyageurs</label>
+            <input id="champ-9" type="number" min="1" max="10" value="2" class="w-full px-4 py-3 rounded-xl input-luxe" required />
+          </div>
+          <!-- Nom -->
+          <div class="demande-full">
+            <label for="champ-10" class="block text-sm font-medium text-dark/70">Nom complet</label>
+            <input id="champ-10" type="text" class="w-full px-4 py-3 rounded-xl input-luxe" required placeholder="Jean Dupont" />
+          </div>
+          <!-- Email -->
+          <div>
+            <label for="champ-11" class="block text-sm font-medium text-dark/70">Email</label>
+            <input id="champ-11" type="email" class="w-full px-4 py-3 rounded-xl input-luxe" required placeholder="jean@email.com" />
+          </div>
+          <!-- Téléphone -->
+          <div>
+            <label for="champ-12" class="block text-sm font-medium text-dark/70">Téléphone</label>
+            <input id="champ-12" type="tel" class="w-full px-4 py-3 rounded-xl input-luxe" required placeholder="+262 692 12 34 56" />
+          </div>
+          <!-- Message (pleine largeur) -->
+          <div class="demande-full">
+            <label for="champ-13" class="block text-sm font-medium text-dark/70">Message (optionnel)</label>
+            <textarea id="champ-13" rows="2" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="Vos envies, demandes particulières..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="w-full mt-4 btn-luxe text-white py-3.5 rounded-xl font-semibold shadow-lg transition text-lg">
+          Envoyer ma demande ✦
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER (allégé) ==================== -->
+  <footer class="bg-dark text-white/80 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-gold text-xl">✦</span>
+        <span class="font-serif font-bold text-white">Villa Bleu Lagon</span>
+        <span class="text-white/30">|</span>
+        <span class="text-white/50">Saint‑Leu, La Réunion</span>
+      </div>
+      <div class="flex gap-6 text-white/40">
+        <a href="#top" class="hover:text-gold transition">Mentions légales</a>
+        <a href="#top" class="hover:text-gold transition">Confidentialité</a>
+        <a href="#top" class="hover:text-gold transition">CGV</a>
+      </div>
+      <div class="text-white/30 text-xs">
+        © 2026 Villa Bleu Lagon — Site démo, informations fictives
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== STICKY CTA MOBILE ==================== -->
+  <div class="sticky-cta">
+    <a href="#demande" class="block btn-luxe text-white text-center py-3.5 rounded-full font-semibold shadow-2xl transition text-base">
+      📅 Demander un séjour ✦
+    </a>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+    }
+
+    // Quick search
+    document.getElementById('quickSearch').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('demande').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Soumission formulaire de demande (compact)
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('✅ Votre demande de séjour a bien été envoyée !\nNous vous répondons sous 24h avec une offre personnalisée.');
+    });
+
+    // Formulaire de contact
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('✅ Votre message a bien été envoyé. Nous vous répondrons dans les meilleurs délais.');
+      this.reset();
+    });
+
+    // Reveal au scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // ===== CARROUSEL =====
+    const track = document.getElementById('carouselTrack');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.setAttribute('data-index', i);
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.querySelectorAll('button');
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function nextSlide() { goToSlide(currentIndex + 1); }
+    function prevSlide() { goToSlide(currentIndex - 1); }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const container = document.querySelector('.carousel-container');
+    if (container) {
+      container.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      container.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextSlide();
+          else prevSlide();
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>

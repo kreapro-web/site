@@ -1,0 +1,1011 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salon du Soleil — Haute Coiffure Tropicale à Saint-Denis | Réservation</title>
+  <meta name="description" content="Salon de coiffure haut de gamme à Saint-Denis, La Réunion. Coupes, colorations, soins, prise de rendez-vous en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="canonical" href="https://kreapro.re/demos/coiffure.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kreapro.re/demos/coiffure.html" />
+  <meta property="og:title" content="Salon du Soleil — Haute Coiffure Tropicale à Saint-Denis | Réservation" />
+  <meta property="og:description" content="Salon de coiffure haut de gamme à Saint-Denis, La Réunion. Coupes, colorations, soins, prise de rendez-vous en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta property="og:image" content="https://kreapro.re/assets/img/og/demo-coiffure.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="KréaPro — Agence Web &amp; Design à La Réunion" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Salon du Soleil — Haute Coiffure Tropicale à Saint-Denis | Réservation" />
+  <meta name="twitter:description" content="Salon de coiffure haut de gamme à Saint-Denis, La Réunion. Coupes, colorations, soins, prise de rendez-vous en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="twitter:image" content="https://kreapro.re/assets/img/og/demo-coiffure.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#434A42" />
+
+  <!-- POLICES : Abril Fatface (titre), Cormorant Garamond (sous-titres), Jost (corps) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            taupe: '#CC978E',
+            ebony: '#626C66',
+            charcoal: '#434A42',
+            tangerine: '#F39C6B',
+            lemon: '#EEE82C',
+          },
+          fontFamily: {
+            title: ['Abril Fatface', 'serif'],
+            subtitle: ['Cormorant Garamond', 'serif'],
+            body: ['Jost', 'sans-serif'],
+          },
+          animation: {
+            'zoom-slow': 'zoom 20s ease-in-out infinite alternate',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            'spin-slow': 'spin 12s linear infinite',
+            'shine': 'shine 3s ease-in-out infinite',
+          },
+          keyframes: {
+            zoom: {
+              '0%': { transform: 'scale(1)' },
+              '100%': { transform: 'scale(1.05)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: 0.7, transform: 'scale(1)' },
+              '50%': { opacity: 1, transform: 'scale(1.05)' },
+            },
+            shine: {
+              '0%': { backgroundPosition: '-200% center' },
+              '100%': { backgroundPosition: '200% center' },
+            },
+          }
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      background-color: #FFFFFF;
+      color: #434A42;
+      font-family: 'Jost', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ===== REVEAL AU SCROLL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===== GLASSMORPHISME ===== */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(67, 74, 66, 0.06);
+    }
+
+    /* ===== BOUTON TANGERINE ===== */
+    .btn-tangerine {
+      background: linear-gradient(135deg, #F39C6B 0%, #E88A5A 100%);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      color: #FFFFFF;
+      background-size: 200% 200%;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-tangerine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+      animation: shine 3s ease-in-out infinite;
+      background-size: 200% 200%;
+    }
+    .btn-tangerine:hover {
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 12px 32px rgba(243, 156, 107, 0.35);
+      background-position: right center;
+    }
+
+    /* ===== BOUTON GHOST ===== */
+    .btn-ghost {
+      border: 1.5px solid rgba(204, 151, 142, 0.3);
+      transition: all 0.3s ease;
+      color: #434A42;
+      backdrop-filter: blur(4px);
+    }
+    .btn-ghost:hover {
+      background: rgba(204, 151, 142, 0.1);
+      border-color: #CC978E;
+      transform: scale(1.02);
+    }
+
+    /* ===== STICKY CTA MOBILE ===== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(243, 156, 107, 0.2);
+      padding: 10px 16px;
+      display: none;
+      animation: pulseSoft 3s ease-in-out infinite;
+    }
+    @media (max-width: 767px) {
+      .sticky-cta { display: block; }
+    }
+
+    /* ===== MENU MOBILE ===== */
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: block; }
+
+    /* ===== INPUTS ===== */
+    .input-luxe {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1.5px solid rgba(204, 151, 142, 0.25);
+      transition: all 0.3s ease;
+    }
+    .input-luxe:focus {
+      border-color: #F39C6B;
+      box-shadow: 0 0 0 4px rgba(243, 156, 107, 0.08);
+      background: white;
+      transform: scale(1.01);
+      outline: none;
+    }
+
+    /* ===== CARTES PRESTATIONS ===== */
+    .service-card {
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      background: white;
+      border: 1px solid rgba(204, 151, 142, 0.15);
+      transform-style: preserve-3d;
+      perspective: 800px;
+    }
+    .service-card:hover {
+      transform: translateY(-10px) rotateX(2deg) scale(1.01);
+      box-shadow: 0 24px 48px rgba(243, 156, 107, 0.12);
+      border-color: #F39C6B;
+    }
+    .service-card img {
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .service-card:hover img {
+      transform: scale(1.06);
+    }
+
+    /* ===== BADGES ===== */
+    .badge-tangerine {
+      display: inline-block;
+      background: #F39C6B;
+      color: white;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 0.15rem 0.9rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+    }
+    .badge-taupe {
+      display: inline-block;
+      background: #CC978E;
+      color: white;
+      font-weight: 600;
+      font-size: 0.55rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ===== PATTERN ===== */
+    .pattern-sun {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='8' fill='%23F39C6B' opacity='0.04'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 60px 60px;
+    }
+
+    /* ===== MAP ===== */
+    .map-container {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ===== ICÔNE SOLEIL TOURNANTE ===== */
+    .sun-icon {
+      display: inline-block;
+      animation: spin-slow 12s linear infinite;
+    }
+
+    /* ===== GALERIE CARROUSEL ===== */
+    .gallery-carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      background: rgba(204, 151, 142, 0.06);
+    }
+    .gallery-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .gallery-slide {
+      min-width: 100%;
+      height: 420px;
+    }
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    .gallery-dots button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.5);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+    .gallery-dots button.active {
+      background: #F39C6B;
+      border-color: #F39C6B;
+      transform: scale(1.2);
+    }
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+    .gallery-btn:hover {
+      background: rgba(243, 156, 107, 0.7);
+      border-color: #F39C6B;
+    }
+    .gallery-btn.prev { left: 12px; }
+    .gallery-btn.next { right: 12px; }
+
+    @media (max-width: 768px) {
+      .gallery-slide { height: 280px; }
+      .gallery-btn { width: 32px; height: 32px; font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body id="top">
+<!-- Bandeau retour vers le portfolio -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:#3D0B37;color:#F3F9D2;font-family:Inter,system-ui,sans-serif;">
+    <div style="max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.65rem 1.5rem;font-size:0.875rem;font-weight:600;">
+      <a href="../portfolio.html" style="color:#F3F9D2;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">&larr; Retour au portfolio</a>
+      <a href="../projets/salon-tropical-coiffure.html" style="color:#C9E4A6;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">Voir l&rsquo;étude de cas&nbsp;&rarr;</a>
+    </div>
+  </div>
+  <script>document.body.style.paddingTop="52px";</script>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-taupe/20 transition-all duration-300" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#top" class="font-title text-2xl text-charcoal flex items-center gap-2 group" aria-label="Salon du Soleil - Accueil">
+        <span class="text-3xl sun-icon group-hover:scale-110 transition-transform duration-500" aria-hidden="true">☀️</span>
+        <span class="group-hover:text-tangerine transition-colors duration-300">Salon du Soleil</span>
+      </a>
+
+      <!-- Navigation desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-charcoal/70" role="navigation" aria-label="Navigation principale">
+        <a href="#services" class="hover:text-tangerine transition border-b-2 border-transparent hover:border-tangerine pb-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-tangerine after:transition-all after:duration-300 hover:after:w-full">Prestations</a>
+        <a href="#equipe" class="hover:text-tangerine transition border-b-2 border-transparent hover:border-tangerine pb-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-tangerine after:transition-all after:duration-300 hover:after:w-full">L'équipe</a>
+        <a href="#galerie" class="hover:text-tangerine transition border-b-2 border-transparent hover:border-tangerine pb-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-tangerine after:transition-all after:duration-300 hover:after:w-full">Galerie</a>
+        <a href="#contact" class="hover:text-tangerine transition border-b-2 border-transparent hover:border-tangerine pb-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-tangerine after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+        <a href="#rdv" class="btn-tangerine px-6 py-2.5 rounded-full text-sm font-semibold shadow transition relative overflow-hidden">
+          <span class="relative z-10">Réserver ✦</span>
+        </a>
+      </nav>
+
+      <!-- Bouton menu mobile -->
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-tangerine/10 transition" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg class="w-6 h-6 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="md:hidden bg-white/95 backdrop-blur-md border-t border-taupe/10 px-4 py-4 space-y-3 text-sm font-medium mobile-menu" role="navigation" aria-label="Navigation mobile">
+      <a href="#services" class="block hover:text-tangerine transition">Prestations</a>
+      <a href="#equipe" class="block hover:text-tangerine transition">L'équipe</a>
+      <a href="#galerie" class="block hover:text-tangerine transition">Galerie</a>
+      <a href="#contact" class="block hover:text-tangerine transition">Contact</a>
+      <a href="#rdv" class="block btn-tangerine text-white text-center px-5 py-2.5 rounded-full font-semibold">Réserver ✦</a>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN ==================== -->
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Bannière d'accueil">
+      <!-- Image de fond -->
+      <div class="absolute inset-0 -z-10">
+        <img src="../assets/img/demos/coiffure-hero.webp" alt="Façade du salon Salon du Soleil à Saint-Denis" class="w-full h-full object-cover animate-zoom-slow" loading="eager" width="1376" height="768" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/30 to-charcoal/10"></div>
+      </div>
+
+      <!-- Particules lumineuses (décor) -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div class="absolute top-1/3 left-1/4 w-80 h-80 bg-tangerine/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-lemon/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+      </div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 text-center text-white py-20 z-10">
+        <!-- Badge -->
+        <div class="badge-tangerine inline-block mb-6 animate-pulse shadow-lg text-sm tracking-widest">✦ SAINT-DENIS · LA RÉUNION</div>
+
+        <!-- Titre principal -->
+        <h1 class="font-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[1.05] tracking-tight drop-shadow-[0_4px_60px_rgba(0,0,0,0.8)] text-white">
+          Salon<br />
+          <span class="text-lemon drop-shadow-[0_0_40px_rgba(238,232,44,0.2)]">du Soleil</span>
+        </h1>
+
+        <!-- Sous-titre -->
+        <p class="font-subtitle text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light italic tracking-[0.15em] text-white/90 drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)] mt-2">
+          Haute Coiffure Tropicale
+        </p>
+
+        <!-- Description -->
+        <p class="mt-6 text-base sm:text-lg md:text-xl text-white/95 max-w-2xl mx-auto font-light tracking-wide drop-shadow-[0_2px_20px_rgba(0,0,0,0.7)] leading-relaxed">
+          Prenez soin de vous dans un cadre chic et tropical.<br />
+          Coupes, colorations, soins et conseils personnalisés.
+        </p>
+
+        <!-- Boutons CTA -->
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="#rdv" class="btn-tangerine px-10 py-4 rounded-full font-title text-lg shadow-2xl transition relative overflow-hidden">
+            <span class="relative z-10">Prendre rendez-vous ✦</span>
+          </a>
+          <a href="#services" class="btn-ghost px-10 py-4 rounded-full font-title text-sm text-white/95 transition backdrop-blur-sm bg-white/10 border-white/20 hover:bg-white/20 shadow-lg">
+            Découvrir nos prestations
+          </a>
+        </div>
+
+        <!-- Tags -->
+        <div class="mt-10 flex flex-wrap justify-center gap-8 text-sm sm:text-base font-medium text-white/80">
+          <span class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-white/10">
+            ✂️ Coupe
+          </span>
+          <span class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-white/10">
+            🎨 Coloration
+          </span>
+          <span class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-white/10">
+            💆 Soin
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRESTATIONS ==================== -->
+    <section id="services" class="py-24 bg-taupe/10 pattern-sun relative overflow-hidden" aria-labelledby="services-title">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-tangerine/5 rounded-full blur-3xl" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-16">
+          <span class="text-ebony text-sm font-semibold uppercase tracking-[0.3em] font-subtitle">— Nos savoir-faire —</span>
+          <h2 id="services-title" class="font-title text-4xl md:text-5xl text-charcoal mt-2">Prestations</h2>
+          <div class="w-20 h-0.5 bg-tangerine/60 mx-auto mt-4" aria-hidden="true"></div>
+          <p class="mt-4 text-charcoal/50 max-w-xl mx-auto">Des services sur mesure pour révéler votre beauté naturelle</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Coupe -->
+          <article class="service-card rounded-3xl overflow-hidden shadow-sm reveal">
+            <div class="overflow-hidden h-64">
+              <img src="../assets/img/demos/coiffure-coupe.webp" alt="Coupe et coiffage au Salon du Soleil" class="w-full h-full object-cover" loading="lazy" width="1024" height="572" decoding="async" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2">
+                <span class="badge-tangerine">⭐ Expert</span>
+                <span class="text-xs text-ebony">À partir de 35€</span>
+              </div>
+              <h3 class="font-subtitle text-2xl text-charcoal mt-1 font-semibold">Coupe & coiffage</h3>
+              <p class="text-sm text-charcoal/60 mt-1">Coupe femme, homme, enfant. Réalisée par nos coiffeurs passionnés.</p>
+              <a href="#rdv" class="mt-4 inline-block text-tangerine font-semibold hover:text-charcoal transition text-sm group">
+                Réserver <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Coloration -->
+          <article class="service-card rounded-3xl overflow-hidden shadow-sm reveal reveal-delay-1">
+            <div class="overflow-hidden h-64">
+              <img src="../assets/img/demos/coiffure-coloration.webp" alt="Coloration et soins au Salon du Soleil" class="w-full h-full object-cover" loading="lazy" width="1024" height="1024" decoding="async" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2">
+                <span class="badge-tangerine">⭐ Coloration</span>
+                <span class="text-xs text-ebony">À partir de 55€</span>
+              </div>
+              <h3 class="font-subtitle text-2xl text-charcoal mt-1 font-semibold">Coloration & soins</h3>
+              <p class="text-sm text-charcoal/60 mt-1">Coloration naturelle, balayage, mèches, avec des produits professionnels.</p>
+              <a href="#rdv" class="mt-4 inline-block text-tangerine font-semibold hover:text-charcoal transition text-sm group">
+                Réserver <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Services complémentaires -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div class="glass-card p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal reveal-delay-2">
+            <span class="text-4xl block mb-3 animate-float" aria-hidden="true">💆</span>
+            <h4 class="font-subtitle text-lg text-charcoal font-semibold">Soin capillaire</h4>
+            <p class="text-sm text-charcoal/60">Hydratation, nutrition, soin intensif</p>
+            <span class="text-tangerine font-semibold text-sm">À partir de 25€</span>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal reveal-delay-3">
+            <span class="text-4xl block mb-3 animate-float" style="animation-delay: 0.5s;" aria-hidden="true">🌀</span>
+            <h4 class="font-subtitle text-lg text-charcoal font-semibold">Brushing</h4>
+            <p class="text-sm text-charcoal/60">Brushing lissant, volumisant, bouclé</p>
+            <span class="text-tangerine font-semibold text-sm">À partir de 20€</span>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal reveal-delay-4">
+            <span class="text-4xl block mb-3 animate-float" style="animation-delay: 1s;" aria-hidden="true">📋</span>
+            <h4 class="font-subtitle text-lg text-charcoal font-semibold">Conseil personnalisé</h4>
+            <p class="text-sm text-charcoal/60">Diagnostic capillaire et recommandations</p>
+            <span class="text-tangerine font-semibold text-sm">Offert</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ÉQUIPE ==================== -->
+    <section id="equipe" class="py-24 bg-white pattern-sun relative overflow-hidden" aria-labelledby="equipe-title">
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-taupe/10 rounded-full blur-3xl" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2">
+            <span class="text-ebony text-sm font-semibold uppercase tracking-[0.3em] font-subtitle">— Nos talents —</span>
+            <h2 id="equipe-title" class="font-title text-4xl md:text-5xl text-charcoal mt-2 leading-tight reveal">
+              Une équipe <span class="text-tangerine">passionnée</span>
+            </h2>
+            <div class="w-16 h-0.5 bg-tangerine/60 mt-4 mb-6 reveal" aria-hidden="true"></div>
+            <p class="text-charcoal/70 leading-relaxed text-lg reveal">
+              Nos coiffeurs sont des artistes de la coupe et de la couleur. Formés aux dernières tendances, ils vous accompagnent avec écoute et expertise pour révéler votre style.
+            </p>
+            <ul class="mt-6 space-y-3 text-charcoal/70" aria-label="Nos atouts">
+              <li class="flex items-center gap-3 reveal"><span class="text-tangerine text-xl" aria-hidden="true">✦</span> 10+ ans d'expérience</li>
+              <li class="flex items-center gap-3 reveal reveal-delay-1"><span class="text-tangerine text-xl" aria-hidden="true">✦</span> Formations continues</li>
+              <li class="flex items-center gap-3 reveal reveal-delay-2"><span class="text-tangerine text-xl" aria-hidden="true">✦</span> Passion et créativité</li>
+            </ul>
+            <a href="#rdv" class="mt-8 inline-block btn-tangerine px-8 py-3.5 rounded-full font-title font-semibold shadow-lg transition relative overflow-hidden reveal">
+              <span class="relative z-10">Prendre rendez-vous ✦</span>
+            </a>
+          </div>
+          <div class="lg:w-1/2 reveal reveal-delay-2">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 group">
+              <img src="../assets/img/demos/coiffure-equipe.webp" alt="L'équipe du Salon du Soleil" class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="1024" height="572" decoding="async" />
+              <div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-charcoal px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                ✂️ Coiffeurs passionnés
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GALERIE (CARROUSEL) ==================== -->
+    <section id="galerie" class="py-24 bg-taupe/10 pattern-sun relative overflow-hidden" aria-labelledby="galerie-title">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-tangerine/5 rounded-full blur-3xl" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12">
+          <span class="text-ebony text-sm font-semibold uppercase tracking-[0.3em] font-subtitle">— Notre univers —</span>
+          <h2 id="galerie-title" class="font-title text-4xl md:text-5xl text-charcoal mt-2">Galerie</h2>
+          <div class="w-20 h-0.5 bg-tangerine/60 mx-auto mt-4" aria-hidden="true"></div>
+          <p class="mt-4 text-charcoal/50 max-w-xl mx-auto">Plongez dans l'ambiance tropicale et chic de notre salon</p>
+        </div>
+
+        <!-- Carrousel -->
+        <div class="gallery-carousel relative shadow-xl border-4 border-white/60" role="region" aria-label="Galerie du salon">
+          <div class="gallery-track" id="galleryTrack">
+            <div class="gallery-slide"><img src="../assets/img/demos/coiffure-ambiance.webp" alt="Ambiance intérieure du salon" loading="lazy" width="1024" height="572" decoding="async" /></div>
+            <div class="gallery-slide"><img src="../assets/img/demos/coiffure-produits.webp" alt="Produits capillaires haut de gamme" loading="lazy" width="1024" height="766" decoding="async" /></div>
+            <div class="gallery-slide"><img src="../assets/img/demos/coiffure-decoration.webp" alt="Détail de la décoration du salon" loading="lazy" width="1024" height="766" decoding="async" /></div>
+            <div class="gallery-slide"><img src="../assets/img/demos/coiffure-detente.webp" alt="Ambiance détente au Salon du Soleil" loading="lazy" width="1024" height="766" decoding="async" /></div>
+          </div>
+
+          <button class="gallery-btn prev" id="galleryPrev" aria-label="Image précédente">‹</button>
+          <button class="gallery-btn next" id="galleryNext" aria-label="Image suivante">›</button>
+
+          <div class="gallery-dots" id="galleryDots" role="tablist" aria-label="Navigation de la galerie"></div>
+        </div>
+
+        <div class="text-center mt-10 reveal">
+          <p class="text-charcoal/50 max-w-2xl mx-auto text-sm">
+            Un salon où le bien-être et la beauté se rencontrent, dans un cadre raffiné et tropical.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TÉMOIGNAGES ==================== -->
+    <section id="temoignages" class="py-20 bg-white pattern-sun relative overflow-hidden" aria-labelledby="temoignages-title">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <span class="text-ebony text-sm font-semibold uppercase tracking-[0.3em] font-subtitle">— Ils parlent de nous —</span>
+          <h2 id="temoignages-title" class="font-title text-4xl md:text-5xl text-charcoal mt-2">Témoignages</h2>
+          <div class="w-16 h-0.5 bg-tangerine/60 mx-auto mt-4" aria-hidden="true"></div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-3xl bg-charcoal/5 p-1" role="region" aria-label="Carrousel de témoignages">
+          <div id="testimonialCarousel" class="flex transition-transform duration-700 ease-in-out">
+            <div class="min-w-full p-8 text-center">
+              <div class="flex text-tangerine text-2xl justify-center" aria-hidden="true">✦✦✦✦✦</div>
+              <blockquote>
+                <p class="mt-4 text-charcoal/70 italic text-lg max-w-2xl mx-auto">"Un salon magnifique, une équipe au top ! La coupe est parfaite, je recommande sans hésiter."</p>
+              </blockquote>
+              <p class="mt-3 font-semibold text-charcoal">– Marie, Saint-Denis</p>
+            </div>
+            <div class="min-w-full p-8 text-center">
+              <div class="flex text-tangerine text-2xl justify-center" aria-hidden="true">✦✦✦✦✦</div>
+              <blockquote>
+                <p class="mt-4 text-charcoal/70 italic text-lg max-w-2xl mx-auto">"Excellente coloriste ! Elle a trouvé la couleur parfaite pour moi. Un vrai moment de plaisir."</p>
+              </blockquote>
+              <p class="mt-3 font-semibold text-charcoal">– Sophie, Sainte-Marie</p>
+            </div>
+            <div class="min-w-full p-8 text-center">
+              <div class="flex text-tangerine text-2xl justify-center" aria-hidden="true">✦✦✦✦✦</div>
+              <blockquote>
+                <p class="mt-4 text-charcoal/70 italic text-lg max-w-2xl mx-auto">"Le cadre est superbe, on se sent bien. Et le résultat est toujours à la hauteur de nos attentes."</p>
+              </blockquote>
+              <p class="mt-3 font-semibold text-charcoal">– Thomas, Saint-André</p>
+            </div>
+          </div>
+          <div class="flex justify-center gap-2 pb-4">
+            <button class="w-3 h-3 rounded-full bg-tangerine/30 transition-all duration-300" data-index="0" aria-label="Témoignage 1"></button>
+            <button class="w-3 h-3 rounded-full bg-tangerine/20 transition-all duration-300" data-index="1" aria-label="Témoignage 2"></button>
+            <button class="w-3 h-3 rounded-full bg-tangerine/20 transition-all duration-300" data-index="2" aria-label="Témoignage 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== POURQUOI NOUS CHOISIR ==================== -->
+    <section class="py-20 bg-taupe/5 pattern-sun relative overflow-hidden" aria-labelledby="pourquoi-title">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <span class="text-ebony text-sm font-semibold uppercase tracking-[0.3em] font-subtitle">— Nos atouts —</span>
+          <h2 id="pourquoi-title" class="font-title text-4xl md:text-5xl text-charcoal mt-2">Pourquoi nous choisir ?</h2>
+          <div class="w-16 h-0.5 bg-tangerine/60 mx-auto mt-4" aria-hidden="true"></div>
+          <p class="mt-4 text-charcoal/50">Des raisons qui font la différence</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="glass-card p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal">
+            <div class="text-5xl mb-4 sun-icon" aria-hidden="true">☀️</div>
+            <h3 class="font-subtitle text-xl text-charcoal font-semibold">Ambiance tropicale</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Un cadre chaleureux et lumineux pour un moment de détente</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal reveal-delay-1">
+            <div class="text-5xl mb-4" aria-hidden="true">✂️</div>
+            <h3 class="font-subtitle text-xl text-charcoal font-semibold">Coiffeurs experts</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Formés aux dernières tendances et techniques</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal reveal-delay-2">
+            <div class="text-5xl mb-4" aria-hidden="true">🌿</div>
+            <h3 class="font-subtitle text-xl text-charcoal font-semibold">Produits bio</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Respectueux de vos cheveux et de l'environnement</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal reveal-delay-3">
+            <div class="text-5xl mb-4" aria-hidden="true">💆</div>
+            <h3 class="font-subtitle text-xl text-charcoal font-semibold">Bien-être</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Un moment de soin et de relaxation privilégié</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== RENDEZ-VOUS ==================== -->
+    <section id="rdv" class="py-20 bg-white pattern-sun relative overflow-hidden" aria-labelledby="rdv-title">
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-tangerine/5 rounded-full blur-3xl" aria-hidden="true"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12">
+          <span class="text-tangerine text-sm font-semibold uppercase tracking-[0.3em] font-subtitle">— Prenez rendez-vous —</span>
+          <h2 id="rdv-title" class="font-title text-4xl md:text-5xl text-charcoal mt-2">Réservez votre créneau</h2>
+          <div class="w-16 h-0.5 bg-tangerine/60 mx-auto mt-4" aria-hidden="true"></div>
+          <p class="mt-4 text-charcoal/50">En 2 minutes, trouvez le créneau qui vous convient.</p>
+        </div>
+
+        <div class="glass-card p-8 md:p-10 rounded-3xl shadow-xl reveal">
+          <form id="rdvForm" class="space-y-6" novalidate>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="rdv-nom" class="block text-sm font-medium text-charcoal/60">Nom complet</label>
+                <input type="text" id="rdv-nom" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="Votre nom" required autocomplete="name" />
+              </div>
+              <div>
+                <label for="rdv-tel" class="block text-sm font-medium text-charcoal/60">Téléphone</label>
+                <input type="tel" id="rdv-tel" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="06 92 12 34 56" required autocomplete="tel" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="rdv-date" class="block text-sm font-medium text-charcoal/60">Date</label>
+                <input type="date" id="rdv-date" class="w-full px-4 py-3 rounded-xl input-luxe" required />
+              </div>
+              <div>
+                <label for="rdv-heure" class="block text-sm font-medium text-charcoal/60">Heure</label>
+                <select id="rdv-heure" class="w-full px-4 py-3 rounded-xl input-luxe">
+                  <option>9h00</option><option>9h30</option><option>10h00</option><option>10h30</option>
+                  <option>11h00</option><option>11h30</option><option>13h00</option><option>13h30</option>
+                  <option>14h00</option><option>14h30</option><option>15h00</option><option>15h30</option>
+                  <option>16h00</option><option>16h30</option><option>17h00</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="rdv-prestation" class="block text-sm font-medium text-charcoal/60">Prestation souhaitée</label>
+              <select id="rdv-prestation" class="w-full px-4 py-3 rounded-xl input-luxe">
+                <option>Coupe & coiffage</option>
+                <option>Coloration & soins</option>
+                <option>Soin capillaire</option>
+                <option>Brushing</option>
+                <option>Conseil personnalisé</option>
+              </select>
+            </div>
+            <div>
+              <label for="rdv-message" class="block text-sm font-medium text-charcoal/60">Message (optionnel)</label>
+              <textarea id="rdv-message" rows="3" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="Vos envies ou demandes particulières..."></textarea>
+            </div>
+            <button type="submit" class="w-full btn-tangerine py-3.5 rounded-xl font-title text-lg shadow-lg transition relative overflow-hidden">
+              <span class="relative z-10">Prendre rendez-vous ✦</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="py-20 bg-taupe/10 pattern-sun relative overflow-hidden" aria-labelledby="contact-title">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <span class="text-ebony text-sm font-semibold uppercase tracking-[0.3em] font-subtitle">— Nous trouver —</span>
+          <h2 id="contact-title" class="font-title text-4xl md:text-5xl text-charcoal mt-2">Contact & localisation</h2>
+          <div class="w-16 h-0.5 bg-tangerine/60 mx-auto mt-4" aria-hidden="true"></div>
+          <p class="mt-4 text-charcoal/50">À Saint-Denis, en plein cœur de la ville.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Informations + carte -->
+          <address class="bg-white/60 p-8 rounded-3xl border border-taupe/20 flex flex-col space-y-6 not-italic reveal">
+            <div>
+              <h3 class="font-title text-3xl text-charcoal flex items-center gap-2">
+                <span class="sun-icon text-2xl" aria-hidden="true">☀️</span> Salon du Soleil
+              </h3>
+              <p class="text-charcoal/50 mt-1">Coiffure & bien-être</p>
+              <p class="text-charcoal/50">📍 15 Rue du Commerce, Saint-Denis</p>
+            </div>
+            <div>
+              <p class="flex items-center gap-3"><span class="text-tangerine text-xl" aria-hidden="true">📞</span> <a href="tel:+262692123456" class="hover:text-tangerine transition font-medium">+262 692 12 34 56</a></p>
+              <p class="flex items-center gap-3"><span class="text-tangerine text-xl" aria-hidden="true">✉️</span> <a href="mailto:contact@salonsoleil.re" class="hover:text-tangerine transition font-medium">contact@salonsoleil.re</a></p>
+              <p class="flex items-center gap-3"><span class="text-tangerine text-xl" aria-hidden="true">💬</span> WhatsApp / Messenger</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-charcoal">Horaires</h4>
+              <p class="text-charcoal/50 text-sm">Mardi - Samedi : 8h - 19h</p>
+              <p class="text-charcoal/50 text-sm">Dimanche : 9h - 13h (sur rendez-vous)</p>
+              <p class="text-charcoal/50 text-sm">Lundi : fermé</p>
+            </div>
+            <div class="flex gap-4 text-2xl text-charcoal/30">
+              <span class="hover:text-tangerine transition cursor-pointer" aria-label="Instagram">📷</span>
+              <span class="hover:text-tangerine transition cursor-pointer" aria-label="Facebook">📘</span>
+              <span class="hover:text-tangerine transition cursor-pointer" aria-label="Twitter">🐦</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-charcoal mb-2">Retrouvez-nous</h4>
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.456!2d55.447!3d-20.882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2182578b3f8b6f9f%3A0x3f8c9e7b1a2d4c5e!2sSaint-Denis%2C%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1712345678901"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Carte Salon du Soleil"
+                ></iframe>
+              </div>
+              <p class="text-xs text-charcoal/40 mt-2 italic">📍 15 Rue du Commerce (fictif) – Saint-Denis</p>
+            </div>
+          </address>
+
+          <!-- Témoignages contact -->
+          <div class="bg-white/60 p-8 rounded-3xl border border-taupe/20 flex flex-col justify-center space-y-6 reveal reveal-delay-1">
+            <div>
+              <h3 class="font-title text-2xl text-charcoal">⭐ Ils parlent de nous</h3>
+              <div class="mt-6 space-y-6">
+                <div class="border-b border-taupe/10 pb-4">
+                  <div class="flex text-tangerine text-lg" aria-hidden="true">✦✦✦✦✦</div>
+                  <blockquote>
+                    <p class="text-charcoal/70 italic text-sm mt-1">"Un salon magnifique, une équipe au top ! La coupe est parfaite, je recommande."</p>
+                  </blockquote>
+                  <p class="text-xs text-charcoal/40 mt-1">– Marie, Saint-Denis</p>
+                </div>
+                <div class="border-b border-taupe/10 pb-4">
+                  <div class="flex text-tangerine text-lg" aria-hidden="true">✦✦✦✦✦</div>
+                  <blockquote>
+                    <p class="text-charcoal/70 italic text-sm mt-1">"Excellente coloriste ! Elle a trouvé la couleur parfaite pour moi."</p>
+                  </blockquote>
+                  <p class="text-xs text-charcoal/40 mt-1">– Sophie, Sainte-Marie</p>
+                </div>
+                <div>
+                  <div class="flex text-tangerine text-lg" aria-hidden="true">✦✦✦✦✦</div>
+                  <blockquote>
+                    <p class="text-charcoal/70 italic text-sm mt-1">"Le cadre est superbe, on se sent bien. Le résultat est toujours à la hauteur."</p>
+                  </blockquote>
+                  <p class="text-xs text-charcoal/40 mt-1">– Thomas, Saint-André</p>
+                </div>
+              </div>
+            </div>
+            <a href="#rdv" class="block w-full btn-tangerine text-white text-center py-3 rounded-xl font-semibold shadow transition relative overflow-hidden">
+              <span class="relative z-10">Prendre rendez-vous ✦</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-charcoal text-white/60 py-10 relative overflow-hidden" role="contentinfo">
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-tangerine/5 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm relative z-10">
+      <div class="flex items-center gap-2">
+        <span class="text-tangerine text-xl sun-icon" aria-hidden="true">☀️</span>
+        <span class="font-title text-white text-xl">Salon du Soleil</span>
+        <span class="text-white/20">|</span>
+        <span class="text-white/30">Saint-Denis</span>
+      </div>
+      <div class="flex gap-6 text-white/30 text-xs">
+        <a href="#top" class="hover:text-tangerine transition">Mentions légales</a>
+        <a href="#top" class="hover:text-tangerine transition">Confidentialité</a>
+        <a href="#top" class="hover:text-tangerine transition">CGV</a>
+      </div>
+      <div class="text-white/20 text-xs">
+        © 2026 Salon du Soleil — Site démo, informations fictives
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== STICKY CTA MOBILE ==================== -->
+  <div class="sticky-cta">
+    <a href="#rdv" class="block btn-tangerine text-white text-center py-3.5 rounded-full font-title shadow-2xl transition text-base relative overflow-hidden">
+      <span class="relative z-10">☀️ Prendre rendez-vous ✦</span>
+    </a>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ===== MENU MOBILE =====
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          const isOpen = mobileMenu.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', isOpen);
+          menuBtn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+        });
+      }
+
+      // ===== FORMULAIRE RDV =====
+      const rdvForm = document.getElementById('rdvForm');
+      if (rdvForm) {
+        rdvForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('✅ Votre rendez-vous a bien été demandé !\nNous vous contacterons pour confirmer.\n☀️ Salon du Soleil – Saint-Denis');
+          rdvForm.reset();
+        });
+      }
+
+      // ===== REVEAL AU SCROLL =====
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // ===== GALERIE CARROUSEL =====
+      const track = document.getElementById('galleryTrack');
+      const slides = track ? track.querySelectorAll('.gallery-slide') : [];
+      const prevBtn = document.getElementById('galleryPrev');
+      const nextBtn = document.getElementById('galleryNext');
+      const dotsContainer = document.getElementById('galleryDots');
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+
+      if (slides.length > 0 && dotsContainer) {
+        // Créer les dots
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement('button');
+          dot.setAttribute('data-index', i);
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'Image ' + (i + 1));
+          if (i === 0) dot.classList.add('active');
+          dot.addEventListener('click', function() {
+            goToSlide(parseInt(this.getAttribute('data-index')));
+          });
+          dotsContainer.appendChild(dot);
+        }
+        const dots = dotsContainer.querySelectorAll('button');
+
+        function goToSlide(index) {
+          if (index < 0) index = totalSlides - 1;
+          if (index >= totalSlides) index = 0;
+          currentIndex = index;
+          track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+          dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === currentIndex);
+          });
+        }
+
+        function nextSlide() { goToSlide(currentIndex + 1); }
+        function prevSlide() { goToSlide(currentIndex - 1); }
+
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+        // Auto-play
+        let galleryInterval = setInterval(nextSlide, 4500);
+        const galleryContainer = document.querySelector('.gallery-carousel');
+        if (galleryContainer) {
+          galleryContainer.addEventListener('mouseenter', function() { clearInterval(galleryInterval); });
+          galleryContainer.addEventListener('mouseleave', function() {
+            galleryInterval = setInterval(nextSlide, 4500);
+          });
+        }
+      }
+
+      // ===== TÉMOIGNAGES CARROUSEL =====
+      const testimonialCarousel = document.getElementById('testimonialCarousel');
+      const testimonialDots = document.querySelectorAll('[data-index]');
+      let testimonialIndex = 0;
+      const totalTestimonials = testimonialDots.length;
+
+      if (testimonialCarousel && testimonialDots.length > 0) {
+        function goToTestimonial(index) {
+          if (index < 0) index = totalTestimonials - 1;
+          if (index >= totalTestimonials) index = 0;
+          testimonialIndex = index;
+          testimonialCarousel.style.transform = 'translateX(-' + (testimonialIndex * 100) + '%)';
+          testimonialDots.forEach(function(dot, i) {
+            dot.classList.toggle('bg-tangerine/30', i === testimonialIndex);
+            dot.classList.toggle('bg-tangerine/20', i !== testimonialIndex);
+          });
+        }
+
+        testimonialDots.forEach(function(dot) {
+          dot.addEventListener('click', function() {
+            goToTestimonial(parseInt(this.getAttribute('data-index')));
+            resetTestimonialAutoPlay();
+          });
+        });
+
+        let testimonialInterval = setInterval(function() {
+          goToTestimonial(testimonialIndex + 1);
+        }, 5000);
+
+        function resetTestimonialAutoPlay() {
+          clearInterval(testimonialInterval);
+          testimonialInterval = setInterval(function() {
+            goToTestimonial(testimonialIndex + 1);
+          }, 5000);
+        }
+
+        const testimonialContainer = testimonialCarousel.parentElement;
+        if (testimonialContainer) {
+          testimonialContainer.addEventListener('mouseenter', function() { clearInterval(testimonialInterval); });
+          testimonialContainer.addEventListener('mouseleave', function() {
+            testimonialInterval = setInterval(function() {
+              goToTestimonial(testimonialIndex + 1);
+            }, 5000);
+          });
+        }
+
+        goToTestimonial(0);
+      }
+
+    })();
+  </script>
+</body>
+</html>

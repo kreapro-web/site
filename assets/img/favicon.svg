@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KréaPro">
+  <rect width="64" height="64" rx="16" fill="#3D0B37"/>
+  <path d="M21.3 10.7L21.3 53.3" fill="none" stroke="#F3F9D2" stroke-width="7" stroke-linecap="round"/>
+  <path d="M21.3 35.2L40.5 53.3" fill="none" stroke="#F3F9D2" stroke-width="7" stroke-linecap="round"/>
+  <path d="M21.9 35.7C25.1 24 35.2 14.4 48.5 12.3C45.3 24.5 36.3 33.1 25.1 36.8Z" fill="#C0D684"/>
+  <path d="M23.5 35.7C29.3 29.3 38.9 20.3 45.9 13.9" fill="none" stroke="#F3F9D2" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

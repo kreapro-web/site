@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("kreapro-theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored ? stored === "dark" : prefersDark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <title>KréaPro — Agence Web &amp; Design à La Réunion</title>
+  <meta name="description" content="KréaPro crée votre site vitrine à La Réunion : simple, rapide, 100 % à vous, dès 1 200 €. Sites pour artisans, commerces et entrepreneurs." />
+
+  <link rel="canonical" href="https://kreapro.re/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kreapro.re/" />
+  <meta property="og:title" content="KréaPro — Agence Web &amp; Design à La Réunion" />
+  <meta property="og:description" content="KréaPro crée votre site vitrine à La Réunion : simple, rapide, 100 % à vous, dès 1 200 €. Sites pour artisans, commerces et entrepreneurs." />
+  <meta property="og:image" content="https://kreapro.re/assets/img/og/og-default.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="KréaPro — Agence Web &amp; Design à La Réunion" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KréaPro — Agence Web &amp; Design à La Réunion" />
+  <meta name="twitter:description" content="KréaPro crée votre site vitrine à La Réunion : simple, rapide, 100 % à vous, dès 1 200 €. Sites pour artisans, commerces et entrepreneurs." />
+  <meta name="twitter:image" content="https://kreapro.re/assets/img/og/og-default.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#3D0B37" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://kreapro.re/#website",
+        "url": "https://kreapro.re/",
+        "name": "KréaPro",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://kreapro.re/#business" }
+      },
+      {
+        "@type": ["ProfessionalService", "WebDesignBusiness"],
+        "@id": "https://kreapro.re/#business",
+        "name": "KréaPro — Agence Web & Design à La Réunion",
+        "url": "https://kreapro.re/",
+        "image": "https://kreapro.re/assets/img/og/og-default.jpg",
+        "logo": "https://kreapro.re/assets/img/logo/kreapro-symbole.svg",
+        "description": "Création de sites internet et d'identités visuelles pour les artisans, commerces et entrepreneurs de La Réunion. SEO local inclus, site 100 % remis au client, sans abonnement obligatoire.",
+        "email": "contact@kreapro.re",
+        "telephone": "+262693860802",
+        "priceRange": "1 200 € – 3 750 €",
+        "currenciesAccepted": "EUR",
+        "foundingDate": "2026",
+        "founder": { "@type": "Person", "name": "Yannick Mégarisse" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Saint-Denis",
+          "addressRegion": "La Réunion",
+          "postalCode": "97400",
+          "addressCountry": "FR"
+        },
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "La Réunion (974)" },
+          { "@type": "City", "name": "Saint-Denis" },
+          { "@type": "City", "name": "Saint-Pierre" },
+          { "@type": "City", "name": "Saint-Paul" },
+          { "@type": "City", "name": "Saint-André" },
+          { "@type": "City", "name": "Le Tampon" }
+        ],
+        "knowsAbout": ["Création de site internet", "Site vitrine", "SEO local", "Identité visuelle", "Landing page", "Design UI/UX"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Offres de création de site internet",
+          "itemListElement": [
+            { "@type": "Offer", "name": "Offre Salazie — site vitrine 1 page", "price": "1200", "priceCurrency": "EUR", "url": "https://kreapro.re/prix.html" },
+            { "@type": "Offer", "name": "Offre Cilaos — site 4 à 6 pages", "price": "2100", "priceCurrency": "EUR", "url": "https://kreapro.re/prix.html" },
+            { "@type": "Offer", "name": "Offre Mafate — site 8 à 12 pages", "price": "3750", "priceCurrency": "EUR", "url": "https://kreapro.re/prix.html" }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ===== Composants 3D — page d'accueil uniquement ===== */
+
+    /* --- Hero : lueurs flottantes façon volcan/tropique, pas de grille --- */
+    .hero-3d { background: linear-gradient(180deg, #3D0B37 0%, #2A0726 100%); }
+    .hero-orb {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      will-change: transform;
+    }
+    /* Dégradé radial plutôt que filter:blur — même effet de lueur douce,
+       sans le coût de recalcul d'un flou animé à chaque image. */
+    /* Va-et-vient (0% et 100% identiques) : l'animation ne boucle jamais sur
+       un saut, elle repart en douceur dans l'autre sens. */
+    .hero-orb--1 {
+      top: -4%;
+      left: -6%;
+      width: min(38vw, 460px);
+      height: min(38vw, 460px);
+      background: radial-gradient(circle, rgba(192, 214, 132, 0.4) 0%, rgba(192, 214, 132, 0) 70%);
+      animation: orbFloat1 17s ease-in-out infinite;
+    }
+    .hero-orb--2 {
+      bottom: -8%;
+      right: -4%;
+      width: min(34vw, 420px);
+      height: min(34vw, 420px);
+      background: radial-gradient(circle, rgba(99, 38, 74, 0.55) 0%, rgba(99, 38, 74, 0) 70%);
+      animation: orbFloat2 21s ease-in-out infinite;
+    }
+    .hero-orb--3 {
+      top: 32%;
+      right: 14%;
+      width: min(24vw, 300px);
+      height: min(24vw, 300px);
+      background: radial-gradient(circle, rgba(201, 228, 166, 0.35) 0%, rgba(201, 228, 166, 0) 70%);
+      animation: orbFloat3 13s ease-in-out infinite;
+    }
+    @keyframes orbFloat1 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(7%, 9%); }
+    }
+    @keyframes orbFloat2 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-8%, -7%); }
+    }
+    @keyframes orbFloat3 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(6%, -10%); }
+    }
+    .hero-3d-glow {
+      position: absolute;
+      top: -15%;
+      left: 50%;
+      width: min(70vw, 820px);
+      height: min(70vw, 820px);
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(192, 214, 132, 0.35), rgba(61, 11, 55, 0) 70%);
+      filter: blur(10px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-3d-title {
+      position: relative;
+      z-index: 10;
+      font-family: "Poppins", "Inter", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.08;
+      color: #F3F9D2;
+      max-width: 18ch;
+      margin: 0 auto;
+    }
+    .hero-3d-gradient {
+      display: inline-block;
+      background-image: linear-gradient(90deg, #C0D684, #C9E4A6, #F3F9D2, #C0D684);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: heroGradientShift 6s ease-in-out infinite;
+    }
+    @keyframes heroGradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    [data-hero-in] {
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: heroEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--d, 0s);
+    }
+    @keyframes heroEnter {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Bouton CTA : inclinaison 3D qui suit le curseur (JS) */
+    .btn-tilt-3d {
+      --rx: 0deg;
+      --ry: 0deg;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.85rem;
+      border-radius: 999px;
+      background: #C0D684;
+      color: #3D0B37;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transform: perspective(600px) rotateX(var(--rx)) rotateY(var(--ry));
+      transform-style: preserve-3d;
+      box-shadow: 0 14px 34px -14px rgba(0, 0, 0, 0.55);
+      transition: transform 0.15s ease-out, box-shadow 0.25s ease-out, filter 0.25s ease-out;
+      will-change: transform;
+    }
+    .btn-tilt-3d:hover { filter: brightness(1.05); box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.6); }
+    .btn-ghost-dark {
+      display: inline-flex;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      border: 2px solid rgba(243, 249, 210, 0.25);
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      color: #F3F9D2;
+      transition: all 0.3s ease-out;
+    }
+    .btn-ghost-dark:hover { border-color: rgba(243, 249, 210, 0.5); background: rgba(243, 249, 210, 0.08); }
+
+    /* --- Bento Grid 3D (services) --- */
+    .bento-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+      grid-template-areas: "a" "b" "c" "d" "e" "f";
+    }
+    @media (min-width: 640px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-areas: "a a" "b c" "d e" "f f"; }
+    }
+    @media (min-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 160px;
+        grid-template-areas: "a a b b" "a a c d" "e e f f";
+      }
+    }
+    .bento-grid > :nth-child(1) { grid-area: a; }
+    .bento-grid > :nth-child(2) { grid-area: b; }
+    .bento-grid > :nth-child(3) { grid-area: c; }
+    .bento-grid > :nth-child(4) { grid-area: d; }
+    .bento-grid > :nth-child(5) { grid-area: e; }
+    .bento-grid > :nth-child(6) { grid-area: f; }
+
+    .bento-card {
+      --rx: 0deg;
+      --ry: 0deg;
+      --mx: 50%;
+      --my: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 1.75rem;
+      box-shadow: 0 20px 45px -18px rgba(61, 11, 55, 0.18);
+      transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out;
+      will-change: transform;
+    }
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      left: var(--mx);
+      top: var(--my);
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(192, 214, 132, 0.45), transparent 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.25s ease-out;
+      pointer-events: none;
+    }
+    .bento-card:hover::before { opacity: 1; }
+    .bento-card-icon { transform: translateZ(40px); transform-style: preserve-3d; }
+    .bento-card-body { transform: translateZ(20px); transform-style: preserve-3d; }
+    .bento-card--feature { color: #F3F9D2; background: linear-gradient(155deg, #3D0B37, #63264A); }
+    .bento-card--cta { background: rgba(192, 214, 132, 0.18); }
+
+    /* .scroll-clip / .scroll-card (révélation au défilement du portfolio
+       ci-dessous) et leur repli prefers-reduced-motion vivent maintenant
+       dans src/input.css, partagés avec les autres pages du site. */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-orb, .hero-3d-gradient, [data-hero-in] { animation: none !important; }
+      [data-hero-in] { opacity: 1 !important; transform: none !important; }
+      .btn-tilt-3d, .bento-card { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+  <div class="progress-bar no-print" aria-hidden="true"><div class="progress-bar-fill" data-progress-fill></div></div>
+
+  <!-- Sprite d'icônes réutilisable -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="icon-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20c1.5 0 2-1 2-2.2 0-.6-.3-1.1-.7-1.5-.4-.4-.6-.9-.6-1.4 0-1.1.9-2 2-2h2.3A4 4 0 0 0 21 11c0-5-4-9-9-9z"/><circle cx="7.5" cy="10.5" r="1.1"/><circle cx="10.5" cy="6.5" r="1.1"/><circle cx="15.5" cy="7.5" r="1.1"/></symbol>
+    <symbol id="icon-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="icon-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+    <symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 9-9 4 0 8 3 8 8a7 7 0 0 1-7 7c-1 0-2-.2-3-1z"/><path d="M4 13c3-1 6-3 9-9"/></symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+  </svg>
+
+  <!-- ===== HEADER ===== -->
+  <div data-kap-numerik-banner class="no-print bg-willow-green px-4 py-2 text-center text-xs font-semibold text-midnight-violet sm:text-sm">
+    <a href="prix.html#aide-kap-numerik" class="hover:underline">Aide Région Réunion (Kap Numérik) : jusqu’à 80&nbsp;% de votre site pris en charge, sous conditions — en savoir plus</a>
+  </div>
+  <header class="sticky top-0 z-40 border-b border-midnight-violet/5 bg-cream/80 backdrop-blur-md dark:border-cream/10 dark:bg-midnight-violet/85">
+    <div class="container-page flex h-20 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="KréaPro — Accueil">
+        <img src="assets/img/logo/kreapro-symbole.svg" alt="" width="36" height="36" class="h-9 w-9 shrink-0" />
+        <span class="font-heading text-lg font-bold text-midnight-violet sm:text-xl dark:text-cream">Kréa<span class="text-blackberry-cream dark:text-tea-green">Pro</span></span>
+      </a>
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Navigation principale">
+        <a data-nav-link href="index.html" class="nav-link px-2">Accueil</a>
+        <a data-nav-link href="services.html" class="nav-link px-2">Services</a>
+        <a data-nav-link href="prix.html" class="nav-link px-2">Tarifs</a>
+        <a data-nav-link href="portfolio.html" class="nav-link px-2">Portfolio</a>
+        <a data-nav-link href="a-propos.html" class="nav-link px-2">À propos</a>
+        <button type="button" data-search-open class="ml-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 hover:text-midnight-violet dark:text-cream/80 dark:hover:bg-cream/10 dark:hover:text-cream" aria-label="Rechercher sur le site">
+          <svg class="h-5 w-5"><use href="#icon-search" /></svg>
+        </button>
+        <button type="button" data-theme-toggle class="inline-flex h-10 w-10 items-center justify-center rounded-full text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 hover:text-midnight-violet dark:text-cream/80 dark:hover:bg-cream/10 dark:hover:text-cream" aria-pressed="false" aria-label="Basculer le mode sombre">
+          <svg class="h-5 w-5 dark:hidden"><use href="#icon-moon" /></svg>
+          <svg class="hidden h-5 w-5 dark:block"><use href="#icon-sun" /></svg>
+        </button>
+        <a href="contact.html" class="btn-primary !min-h-0 ml-2 px-5 py-2.5 text-sm">Parlons de votre projet</a>
+      </nav>
+      <button data-nav-toggle type="button" class="inline-flex items-center justify-center rounded-full p-2.5 text-midnight-violet dark:text-cream md:hidden" aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg class="h-6 w-6"><use href="#icon-menu" /></svg>
+      </button>
+    </div>
+    <div data-nav-menu class="hidden flex-col gap-1 border-t border-midnight-violet/5 bg-cream px-5 pb-6 pt-3 dark:border-cream/10 dark:bg-midnight-violet md:hidden">
+      <a href="index.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet transition-colors hover:bg-midnight-violet/5 dark:text-cream dark:hover:bg-cream/5">Accueil</a>
+      <a href="services.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">Services</a>
+      <a href="prix.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">Tarifs</a>
+      <a href="portfolio.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">Portfolio</a>
+      <a href="a-propos.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">À propos</a>
+      <div class="mt-2 flex items-center gap-2 border-t border-midnight-violet/5 pt-3 dark:border-cream/10">
+        <button type="button" data-search-open class="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-midnight-violet/10 px-4 py-2.5 text-sm font-semibold text-midnight-violet transition-colors hover:bg-midnight-violet/5 dark:border-cream/15 dark:text-cream dark:hover:bg-cream/5">
+          <svg class="h-4 w-4"><use href="#icon-search" /></svg> Rechercher
+        </button>
+        <button type="button" data-theme-toggle class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-midnight-violet/10 text-midnight-violet transition-colors hover:bg-midnight-violet/5 dark:border-cream/15 dark:text-cream dark:hover:bg-cream/5" aria-pressed="false" aria-label="Basculer le mode sombre">
+          <svg class="h-5 w-5 dark:hidden"><use href="#icon-moon" /></svg>
+          <svg class="hidden h-5 w-5 dark:block"><use href="#icon-sun" /></svg>
+        </button>
+      </div>
+      <a href="contact.html" class="btn-primary mt-2">Parlons de votre projet</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== HERO 3D ===== -->
+    <section class="hero-3d relative overflow-hidden py-24 sm:py-32">
+      <div class="hero-orb hero-orb--1"></div>
+      <div class="hero-orb hero-orb--2"></div>
+      <div class="hero-orb hero-orb--3"></div>
+      <div class="hero-3d-glow"></div>
+      <div class="container-page relative flex flex-col items-center text-center">
+        <p class="section-eyebrow justify-center !text-tea-green" data-hero-in style="--d:0s">
+          <svg class="h-4 w-4"><use href="#icon-leaf" /></svg>
+          Agence Web &amp; Design — La Réunion
+        </p>
+        <h1 class="hero-3d-title" data-hero-in style="--d:0.1s">
+          Vos clients vous cherchent sur Google.
+          <span class="hero-3d-gradient">Qu'ils vous trouvent, vous.</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-lg text-cream/75" data-hero-in style="--d:0.25s">
+          KréaPro crée votre site internet à La Réunion : simple, rapide, et pensé pour donner envie de vous contacter. Le site vous appartient à 100 %, sans abonnement obligatoire, à un prix clair dès 1 200 €.
+        </p>
+        <div class="mt-9 flex flex-wrap justify-center gap-4" data-hero-in style="--d:0.4s">
+          <a href="contact.html" class="btn-tilt-3d" data-tilt>
+            Parlons de votre projet
+            <svg class="h-4 w-4"><use href="#icon-arrow-right" /></svg>
+          </a>
+          <a href="portfolio.html" class="btn-ghost-dark">Voir nos réalisations</a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-cream/55" data-hero-in style="--d:0.5s">
+          <div class="flex items-center gap-2"><svg class="h-4 w-4 text-willow-green"><use href="#icon-check-circle" /></svg> Réponse sous 24h</div>
+          <div class="flex items-center gap-2"><svg class="h-4 w-4 text-willow-green"><use href="#icon-map-pin" /></svg> Agence basée à La Réunion (974)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROBLEME -> SOLUTION ===== -->
+    <section class="container-page py-20">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16" data-reveal-group>
+        <div data-reveal>
+          <p class="section-eyebrow">Le constat</p>
+          <h2 class="section-title">Pas de site, pas de visibilité. Pas de visibilité, pas de nouveaux clients.</h2>
+          <ul class="mt-6 space-y-4 text-ink/75">
+            <li class="flex gap-3"><span class="mt-1 text-blackberry-cream">—</span> Introuvable sur Google, alors que vos concurrents y sont</li>
+            <li class="flex gap-3"><span class="mt-1 text-blackberry-cream">—</span> Aucun moyen simple de vous contacter en un clic</li>
+            <li class="flex gap-3"><span class="mt-1 text-blackberry-cream">—</span> Un design qui ne donne pas confiance au premier regard</li>
+            <li class="flex gap-3"><span class="mt-1 text-blackberry-cream">—</span> Un site que vous ne savez pas mettre à jour vous-même</li>
+          </ul>
+        </div>
+        <div class="rounded-xl2 bg-midnight-violet p-8 text-cream sm:p-10" data-reveal>
+          <p class="section-eyebrow !text-tea-green">Notre méthode</p>
+          <h3 class="font-heading text-2xl font-bold text-cream">Une approche simple et humaine, en trois étapes.</h3>
+          <ol class="mt-6 space-y-5">
+            <li class="flex gap-4">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-willow-green font-heading text-sm font-bold text-midnight-violet">1</span>
+              <p class="text-cream/80"><span class="font-semibold text-cream">Comprendre</span> votre activité et ce que vos clients cherchent vraiment.</p>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-willow-green font-heading text-sm font-bold text-midnight-violet">2</span>
+              <p class="text-cream/80"><span class="font-semibold text-cream">Concevoir</span> un site clair et rapide, pensé d'abord pour le mobile.</p>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-willow-green font-heading text-sm font-bold text-midnight-violet">3</span>
+              <p class="text-cream/80"><span class="font-semibold text-cream">Livrer</span> votre site, avec le référencement local et un vrai suivi après la mise en ligne.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="bg-white/50 py-20">
+      <div class="container-page">
+        <div class="max-w-2xl">
+          <p class="section-eyebrow">Ce que nous proposons</p>
+          <h2 class="section-title">Cinq services pour exister en ligne, sans complexité.</h2>
+        </div>
+        <div class="bento-grid mt-12">
+          <a href="services.html#site-vitrine" class="bento-card bento-card--feature" data-bento-tilt>
+            <div class="bento-card-icon flex h-12 w-12 items-center justify-center rounded-full bg-willow-green/25 text-willow-green">
+              <svg class="h-6 w-6"><use href="#icon-monitor" /></svg>
+            </div>
+            <div class="bento-card-body">
+              <h3 class="mt-5 font-heading text-xl font-bold text-cream">Site vitrine</h3>
+              <p class="mt-2 max-w-xs text-sm text-cream/70">Un site clair et rapide pour présenter votre activité et être trouvé localement, dès 1 200 €.</p>
+            </div>
+          </a>
+          <a href="services.html#identite-visuelle" class="bento-card" data-bento-tilt>
+            <div class="bento-card-icon flex h-11 w-11 items-center justify-center rounded-full bg-willow-green/30 text-midnight-violet">
+              <svg class="h-5 w-5"><use href="#icon-palette" /></svg>
+            </div>
+            <div class="bento-card-body">
+              <h3 class="mt-4 font-heading text-lg font-bold text-midnight-violet">Identité visuelle</h3>
+              <p class="mt-1.5 text-sm text-ink/70">Logo, palette et charte graphique cohérente.</p>
+            </div>
+          </a>
+          <a href="services.html#landing-page" class="bento-card" data-bento-tilt>
+            <div class="bento-card-icon flex h-11 w-11 items-center justify-center rounded-full bg-willow-green/30 text-midnight-violet">
+              <svg class="h-5 w-5"><use href="#icon-layout" /></svg>
+            </div>
+            <div class="bento-card-body">
+              <h3 class="mt-4 font-heading text-lg font-bold text-midnight-violet">Landing page</h3>
+              <p class="mt-1.5 text-sm text-ink/70">Une page pour convaincre en quelques secondes.</p>
+            </div>
+          </a>
+          <a href="services.html#ui-ux" class="bento-card" data-bento-tilt>
+            <div class="bento-card-icon flex h-11 w-11 items-center justify-center rounded-full bg-willow-green/30 text-midnight-violet">
+              <svg class="h-5 w-5"><use href="#icon-bag" /></svg>
+            </div>
+            <div class="bento-card-body">
+              <h3 class="mt-4 font-heading text-lg font-bold text-midnight-violet">Réservation &amp; devis</h3>
+              <p class="mt-1.5 text-sm text-ink/70">Vos clients réservent en quelques clics.</p>
+            </div>
+          </a>
+          <a href="services.html#maintenance" class="bento-card" data-bento-tilt>
+            <div class="bento-card-icon flex h-11 w-11 items-center justify-center rounded-full bg-willow-green/30 text-midnight-violet">
+              <svg class="h-5 w-5"><use href="#icon-wrench" /></svg>
+            </div>
+            <div class="bento-card-body">
+              <h3 class="mt-4 font-heading text-lg font-bold text-midnight-violet">Maintenance</h3>
+              <p class="mt-1.5 text-sm text-ink/70">Mises à jour et accompagnement continu.</p>
+            </div>
+          </a>
+          <a href="services.html" class="bento-card bento-card--cta" data-bento-tilt>
+            <div class="bento-card-body">
+              <p class="font-heading text-lg font-bold text-midnight-violet">Voir tous les services</p>
+              <span class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-blackberry-cream">
+                Explorer
+                <svg class="h-4 w-4"><use href="#icon-arrow-right" /></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO PREVIEW ===== -->
+    <section class="container-page py-20">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <p class="section-eyebrow">Réalisations</p>
+          <h2 class="section-title scroll-clip">Quelques projets récents.</h2>
+        </div>
+        <a href="portfolio.html" class="btn-ghost">Voir tout le portfolio</a>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="projets/reunion-island.html" class="scroll-card card group flex flex-col !p-0 overflow-hidden" style="--d:0s">
+          <div class="relative h-48 overflow-hidden">
+            <img src="assets/img/projets/reunion-island-desktop.webp" alt="Page d'accueil du site La Réunion, portrait d'une île volcanique" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="800" />
+            <span class="badge absolute left-4 top-4">Projet personnel</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-lg font-bold text-midnight-violet">La Réunion, portrait d'une île volcanique</h3>
+            <p class="mt-2 text-sm text-ink/70">Site éditorial bilingue sur le patrimoine volcanique de l'île, réalisé hors mandat client.</p>
+            <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blackberry-cream">Découvrir le projet <svg class="h-4 w-4"><use href="#icon-arrow-right" /></svg></span>
+          </div>
+        </a>
+        <a href="projets/plombier-durand.html" class="scroll-card card group flex flex-col !p-0 overflow-hidden" style="--d:0.12s">
+          <div class="relative h-48 overflow-hidden">
+            <img src="assets/img/projets/plombier-durand/cover.webp" alt="Page d'accueil de la démo Plomberie Durand" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720" />
+            <span class="badge absolute left-4 top-4">Démo — Artisan</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-lg font-bold text-midnight-violet">Plomberie Durand</h3>
+            <p class="mt-2 text-sm text-ink/70">Démo réalisée par l'agence pour l'offre Salazie, appliquée à un artisan plombier.</p>
+            <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blackberry-cream">Découvrir le projet <svg class="h-4 w-4"><use href="#icon-arrow-right" /></svg></span>
+          </div>
+        </a>
+        <a href="projets/ti-kaz-gourmande.html" class="scroll-card card group flex flex-col !p-0 overflow-hidden" style="--d:0.24s">
+          <div class="relative h-48 overflow-hidden">
+            <img src="assets/img/projets/ti-kaz-gourmande/cover.webp" alt="Page d'accueil de la démo Ti Kaz Gourmande" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720" />
+            <span class="badge absolute left-4 top-4">Démo — Restaurant</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-lg font-bold text-midnight-violet">Ti Kaz Gourmande</h3>
+            <p class="mt-2 text-sm text-ink/70">Démo réalisée par l'agence pour l'offre Site + Fonctionnalité Métier, appliquée à un restaurant avec réservation.</p>
+            <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blackberry-cream">Découvrir le projet <svg class="h-4 w-4"><use href="#icon-arrow-right" /></svg></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section class="container-page py-20">
+      <div class="relative overflow-hidden rounded-xl2 bg-gradient-to-br from-willow-green/40 via-tea-green/30 to-cream p-10 text-center dark:from-willow-green/15 dark:via-blackberry-cream/25 dark:to-midnight-violet sm:p-16" data-reveal>
+        <div class="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-willow-green/30 blur-[100px]"></div>
+        <h2 class="section-title mx-auto max-w-2xl">Prêt à ce que vos clients vous trouvent, enfin ?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-ink/70">Un échange rapide et sans engagement, pour comprendre votre activité et vous proposer la bonne formule.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="btn-primary">Parlons de votre projet</a>
+          <a href="https://wa.me/262693860802?text=Bonjour%20KréaPro%2C%20je%20souhaite%20discuter%20d%27un%20projet." target="_blank" rel="noopener" class="btn-secondary">
+            <svg class="h-4 w-4"><use href="#icon-chat" /></svg>
+            Écrire sur WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-midnight-violet text-cream">
+    <div class="container-page grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <p class="flex items-center gap-2.5">
+          <img src="assets/img/logo/kreapro-symbole-blanc.svg" alt="" width="30" height="30" class="h-8 w-8 shrink-0" />
+          <span class="font-heading text-lg font-bold text-cream">Kréa<span class="text-willow-green">Pro</span></span>
+        </p>
+        <p class="mt-3 text-sm text-cream/70">Sites web et identités visuelles pour les entrepreneurs de La Réunion. Simple, rapide, et 100 % à vous.</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-tea-green">Navigation</p>
+        <ul class="mt-4 space-y-2 text-sm text-cream/80">
+          <li><a href="index.html" class="hover:text-willow-green">Accueil</a></li>
+          <li><a href="services.html" class="hover:text-willow-green">Services</a></li>
+          <li><a href="prix.html" class="hover:text-willow-green">Tarifs</a></li>
+          <li><a href="portfolio.html" class="hover:text-willow-green">Portfolio</a></li>
+          <li><a href="a-propos.html" class="hover:text-willow-green">À propos</a></li>
+          <li><a href="contact.html" class="hover:text-willow-green">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-tea-green">Contact</p>
+        <ul class="mt-4 space-y-2 text-sm text-cream/80">
+          <li><a href="mailto:contact@kreapro.re" class="inline-flex items-center gap-2 hover:text-willow-green"><svg class="h-4 w-4"><use href="#icon-mail" /></svg> contact@kreapro.re</a></li>
+          <li><a href="https://wa.me/262693860802" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-willow-green"><svg class="h-4 w-4"><use href="#icon-chat" /></svg> WhatsApp</a></li>
+          <li class="inline-flex items-center gap-2"><svg class="h-4 w-4"><use href="#icon-map-pin" /></svg> Saint-Denis, La Réunion (974)</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-tea-green">Informations</p>
+        <ul class="mt-4 space-y-2 text-sm text-cream/80">
+          <li><a href="mentions-legales.html" class="hover:text-willow-green">Mentions légales</a></li>
+          <li><a href="politique-confidentialite.html" class="hover:text-willow-green">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Newsletter — même service Web3Forms que le formulaire de contact. -->
+    <div class="no-print border-t border-cream/10">
+      <div class="container-page flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
+        <div class="text-center sm:text-left">
+          <p class="font-heading text-base font-bold text-cream">Un conseil utile par mois, pas plus.</p>
+          <p class="mt-1 text-sm text-cream/70">Visibilité locale et astuces web pour votre activité. Zéro sollicitation, désinscription en un clic.</p>
+        </div>
+        <form data-newsletter-form action="https://api.web3forms.com/submit" method="POST" class="flex w-full max-w-sm flex-col gap-2.5 sm:w-auto sm:flex-row" novalidate>
+          <input type="hidden" name="access_key" value="d095f833-961f-477f-b9b2-c50c32571709" />
+          <input type="hidden" name="subject" value="Nouvelle inscription newsletter — site KréaPro" />
+          <input type="hidden" name="from_name" value="Newsletter KréaPro" />
+          <label for="newsletter-email" class="sr-only">Adresse e-mail</label>
+          <input id="newsletter-email" name="email" type="email" required autocomplete="email" placeholder="Votre e-mail" class="newsletter-input" />
+          <button type="submit" data-loading-label="Inscription…" class="btn-primary !min-h-0 px-5 py-3 text-sm">S'inscrire</button>
+        </form>
+        <div data-newsletter-confirmation tabindex="-1" class="hidden max-w-sm rounded-xl2 bg-willow-green/15 px-5 py-3 text-center text-sm font-semibold text-tea-green sm:text-left" role="status">
+          Merci, vous êtes inscrit(e) ! Vous recevrez nos prochains conseils par e-mail.
+        </div>
+        <p data-newsletter-error class="hidden text-sm text-red-300" role="alert">L'inscription a échoué. Réessayez, ou écrivez-nous directement à contact@kreapro.re.</p>
+      </div>
+    </div>
+
+    <div class="border-t border-cream/10">
+      <div class="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-cream/60 sm:flex-row">
+        <p>© 2026 KréaPro. Tous droits réservés.</p>
+        <div class="flex gap-4">
+          <a href="mentions-legales.html" class="hover:text-cream">Mentions légales</a>
+          <a href="politique-confidentialite.html" class="hover:text-cream">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton de contact flottant (WhatsApp / e-mail / téléphone) -->
+  <div class="contact-fab no-print">
+    <div data-fab-menu class="contact-fab-menu hidden">
+      <a href="https://wa.me/262693860802?text=Bonjour%20KréaPro%2C%20je%20souhaite%20discuter%20d%27un%20projet." target="_blank" rel="noopener" class="contact-fab-item">
+        <svg class="h-4 w-4"><use href="#icon-chat" /></svg> WhatsApp
+      </a>
+      <a href="mailto:contact@kreapro.re" class="contact-fab-item">
+        <svg class="h-4 w-4"><use href="#icon-mail" /></svg> Email
+      </a>
+      <a href="tel:+262693860802" class="contact-fab-item">
+        <svg class="h-4 w-4"><use href="#icon-phone" /></svg> Appeler
+      </a>
+    </div>
+    <button type="button" data-fab-toggle class="contact-fab-toggle" aria-expanded="false" aria-label="Options de contact">
+      <svg class="h-6 w-6"><use href="#icon-chat" /></svg>
+    </button>
+  </div>
+
+  <!-- Retour en haut de page -->
+  <button type="button" data-back-to-top class="back-to-top no-print" aria-label="Retour en haut de page">
+    <svg class="h-5 w-5"><use href="#icon-arrow-up" /></svg>
+  </button>
+
+  <!-- Recherche du site -->
+  <div data-search-backdrop class="search-modal-backdrop no-print hidden">
+    <div class="search-modal" role="dialog" aria-modal="true" aria-label="Recherche">
+      <div class="flex items-center gap-3">
+        <svg class="h-5 w-5 shrink-0 text-midnight-violet/50 dark:text-cream/50"><use href="#icon-search" /></svg>
+        <input type="search" data-search-input aria-label="Rechercher une page" class="search-modal-input" placeholder="Rechercher une page…" />
+      </div>
+      <div data-search-results class="mt-4 max-h-80 space-y-1 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- Bandeau d'information sur le stockage local -->
+  <div data-storage-notice class="storage-notice hidden no-print">
+    <div class="storage-notice-inner">
+      <p>Stockage local utilisé uniquement pour votre préférence d'affichage. Aucun cookie de suivi.</p>
+      <button type="button" data-storage-dismiss class="shrink-0 rounded-full bg-midnight-violet px-4 py-1.5 text-xs font-semibold text-cream transition-colors hover:brightness-110 dark:bg-cream dark:text-midnight-violet">J'ai compris</button>
+    </div>
+  </div>
+
+  <script src="assets/js/search-index.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script>
+    (function () {
+      function initHeroCTATilt() {
+        var btn = document.querySelector('[data-tilt]');
+        if (!btn) return;
+        btn.addEventListener('pointermove', function (e) {
+          var rect = btn.getBoundingClientRect();
+          var cx = (e.clientX - rect.left) / rect.width - 0.5;
+          var cy = (e.clientY - rect.top) / rect.height - 0.5;
+          btn.style.setProperty('--rx', (cy * -18) + 'deg');
+          btn.style.setProperty('--ry', (cx * 18) + 'deg');
+        });
+        btn.addEventListener('pointerleave', function () {
+          btn.style.setProperty('--rx', '0deg');
+          btn.style.setProperty('--ry', '0deg');
+        });
+      }
+
+      function initBentoTilt() {
+        var cards = document.querySelectorAll('[data-bento-tilt]');
+        cards.forEach(function (card) {
+          card.addEventListener('pointermove', function (e) {
+            var rect = card.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            var cx = x / rect.width - 0.5;
+            var cy = y / rect.height - 0.5;
+            card.style.setProperty('--rx', (cy * -8) + 'deg');
+            card.style.setProperty('--ry', (cx * 8) + 'deg');
+            card.style.setProperty('--mx', x + 'px');
+            card.style.setProperty('--my', y + 'px');
+          });
+          card.addEventListener('pointerleave', function () {
+            card.style.setProperty('--rx', '0deg');
+            card.style.setProperty('--ry', '0deg');
+          });
+        });
+      }
+
+      // La révélation au défilement (.scroll-clip / .scroll-card ci-dessus)
+      // est maintenant gérée par initScrollDrivenReveal() dans le main.js
+      // partagé, chargé sur cette page.
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+          initHeroCTATilt();
+          initBentoTilt();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

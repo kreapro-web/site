@@ -1,0 +1,701 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Créole — Restaurant tropical à Saint-Pierre | Réservation</title>
+  <meta name="description" content="Restaurant créole familial à Saint-Pierre, La Réunion. Cuisine authentique depuis 1985, plats signatures, réservation en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="canonical" href="https://kreapro.re/demos/traiteur.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kreapro.re/demos/traiteur.html" />
+  <meta property="og:title" content="Case Créole — Restaurant tropical à Saint-Pierre | Réservation" />
+  <meta property="og:description" content="Restaurant créole familial à Saint-Pierre, La Réunion. Cuisine authentique depuis 1985, plats signatures, réservation en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta property="og:image" content="https://kreapro.re/assets/img/og/demo-traiteur.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="KréaPro — Agence Web &amp; Design à La Réunion" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Case Créole — Restaurant tropical à Saint-Pierre | Réservation" />
+  <meta name="twitter:description" content="Restaurant créole familial à Saint-Pierre, La Réunion. Cuisine authentique depuis 1985, plats signatures, réservation en ligne. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="twitter:image" content="https://kreapro.re/assets/img/og/demo-traiteur.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#1A3A4A" />
+
+  <!-- ===== POLICES GOOGLE IMPACTANTES ===== -->
+  <!-- Island Moments (titre principal, logo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Island+Moments&family=Abril+Fatface&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coral: '#E87A6B',
+            red: '#D95D39',
+            green: '#2E5A3D',
+            blue: '#1A3A4A',
+            creole: '#FFF8F0',
+          },
+          fontFamily: {
+            sans: ['Lora', 'serif'],
+            script: ['Island Moments', 'cursive'],
+            display: ['Abril Fatface', 'serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'zoom-slow': 'zoom 20s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-15px)' },
+            },
+            zoom: {
+              '0%': { transform: 'scale(1)' },
+              '100%': { transform: 'scale(1.08)' },
+            },
+          }
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #FFF8F0; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-coral {
+      background: linear-gradient(135deg, #E87A6B 0%, #D95D39 100%);
+      transition: all 0.3s ease;
+      background-size: 200% 200%;
+    }
+    .btn-coral:hover {
+      background-position: right center;
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(232, 122, 107, 0.3);
+    }
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(232, 122, 107, 0.3);
+      padding: 12px 16px;
+      display: none;
+    }
+    @media (max-width: 767px) { .sticky-cta { display: block; } }
+
+    .input-luxe {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(232, 122, 107, 0.3);
+      transition: all 0.3s ease;
+    }
+    .input-luxe:focus {
+      border-color: #E87A6B;
+      box-shadow: 0 0 0 4px rgba(232, 122, 107, 0.1);
+      background: white;
+    }
+
+    .leaf-badge {
+      display: inline-block;
+      background: #2E5A3D;
+      color: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .dish-card {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .dish-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(232, 122, 107, 0.15);
+    }
+    .dish-card img {
+      transition: transform 0.6s ease;
+    }
+    .dish-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .leaf-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 10 L35 25 L30 40 L25 25 Z' fill='%232E5A3D' opacity='0.04'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 60px 60px;
+    }
+
+    /* ===== MENU IMMERSIF ===== */
+    .nav-immersive {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      background: rgba(26, 58, 74, 0.92);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .nav-immersive.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .nav-immersive .close-btn {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      color: white;
+      font-size: 2.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+      font-weight: 300;
+    }
+    .nav-immersive .close-btn:hover {
+      transform: rotate(90deg);
+    }
+    .nav-immersive ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.8rem;
+    }
+    .nav-immersive ul li a {
+      font-family: 'Abril Fatface', serif;
+      font-size: 2.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .nav-immersive ul li a .icon {
+      font-size: 2rem;
+      opacity: 0.6;
+    }
+    .nav-immersive ul li a:hover {
+      color: #E87A6B;
+      transform: scale(1.08);
+    }
+    .nav-immersive ul li a:hover .icon {
+      opacity: 1;
+    }
+    .nav-immersive::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 15 L47 35 L40 55 L33 35 Z' fill='%23E87A6B' opacity='0.06'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    @media (min-width: 768px) {
+      .nav-immersive ul li a {
+        font-size: 4rem;
+      }
+      .nav-immersive ul li a .icon {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body id="top" class="text-blue antialiased font-sans overflow-x-hidden">
+<!-- Bandeau retour vers le portfolio -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:#3d0b37;color:#F3F9D2;font-family:Inter,system-ui,sans-serif;">
+    <div style="max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.65rem 1.5rem;font-size:0.875rem;font-weight:600;">
+      <a href="../portfolio.html" style="color:#F3F9D2;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">&larr; Retour au portfolio</a>
+      <a href="../projets/case-creole-traiteur.html" style="color:#C9E4A6;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">Voir l&rsquo;étude de cas&nbsp;&rarr;</a>
+    </div>
+  </div>
+  <script>document.body.style.paddingTop="52px";</script>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-coral/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#top" class="text-3xl font-script font-bold text-blue flex items-center gap-2">
+        <span class="text-red text-3xl">✦</span>
+        Case Créole
+      </a>
+
+      <!-- Navigation desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-blue/80">
+        <a href="#restaurant" class="hover:text-coral transition border-b-2 border-transparent hover:border-coral pb-1">Le restaurant</a>
+        <a href="#plats" class="hover:text-coral transition border-b-2 border-transparent hover:border-coral pb-1">Nos plats</a>
+        <a href="#carte" class="hover:text-coral transition border-b-2 border-transparent hover:border-coral pb-1">Carte</a>
+        <a href="#contact" class="hover:text-coral transition border-b-2 border-transparent hover:border-coral pb-1">Contact</a>
+        <a href="#contact" class="btn-coral text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg transition">
+          Réserver ✦
+        </a>
+      </nav>
+
+      <!-- Bouton menu mobile (hamburger) -->
+      <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-coral/10 transition" aria-label="Menu">
+        <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MENU IMMERSIF ===== -->
+  <div id="menuImmersif" class="nav-immersive">
+    <button id="closeMenu" class="close-btn" aria-label="Fermer">✕</button>
+    <ul>
+      <li><a href="#restaurant"><span class="icon">🍽️</span> Le restaurant</a></li>
+      <li><a href="#plats"><span class="icon">🌿</span> Nos plats</a></li>
+      <li><a href="#carte"><span class="icon">📋</span> La carte</a></li>
+      <li><a href="#temoignages"><span class="icon">⭐</span> Témoignages</a></li>
+      <li><a href="#contact"><span class="icon">📞</span> Contact</a></li>
+      <li><a href="#contact" class="text-coral"><span class="icon">🍾</span> Réserver</a></li>
+    </ul>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img src="../assets/img/demos/traiteur-hero.webp" alt="Case Créole Restaurant" class="w-full h-full object-cover animate-zoom-slow" width="1024" height="572" />
+      <div class="absolute inset-0 bg-gradient-to-t from-blue/80 via-blue/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-creole/20 to-transparent"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center text-white py-20 z-10 reveal">
+      <div class="leaf-badge inline-block mb-4">✦ Cuisine authentique depuis 1985</div>
+      <h1 class="font-script text-5xl sm:text-6xl md:text-7xl font-bold leading-tight drop-shadow-2xl">
+        Case Créole
+        <span class="block text-3xl sm:text-4xl md:text-5xl font-sans font-light text-coral/90 italic mt-2">Restaurant tropical</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto font-light tracking-wide drop-shadow-lg">
+        Laissez‑vous envoûter par les saveurs et la générosité de la cuisine créole, dans un cadre chaleureux et authentique.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="btn-coral text-white px-8 py-3 rounded-full font-semibold shadow-xl transition text-lg">
+          Réserver une table ✦
+        </a>
+        <a href="#carte" class="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-full font-medium hover:bg-white/30 transition">
+          Voir la carte
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LE RESTAURANT ==================== -->
+  <section id="restaurant" class="py-24 bg-creole/80 relative leaf-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 reveal">
+          <span class="text-coral text-sm font-semibold uppercase tracking-[0.3em]">— Notre histoire —</span>
+          <h2 class="font-script text-4xl md:text-5xl font-bold text-blue mt-2 leading-tight">
+            Un lieu de <span class="text-red">partage</span>
+          </h2>
+          <div class="w-24 h-1 bg-coral mt-4 mb-6"></div>
+          <p class="text-blue/70 leading-relaxed text-lg">
+            Chez Case Créole, nous perpétuons les recettes familiales transmises de génération en génération.
+            Chaque plat est préparé avec des produits frais du marché de Saint‑Pierre, dans le respect des traditions et avec une touche d’amour.
+          </p>
+          <ul class="mt-6 space-y-3 text-blue/80">
+            <li class="flex items-center gap-3"><span class="text-coral text-2xl">✦</span> Épices fraîchement moulues</li>
+            <li class="flex items-center gap-3"><span class="text-coral text-2xl">✦</span> Produits locaux et de saison</li>
+            <li class="flex items-center gap-3"><span class="text-coral text-2xl">✦</span> Cuisine faite avec le cœur</li>
+          </ul>
+          <a href="#contact" class="mt-8 inline-block btn-coral text-white px-8 py-3.5 rounded-full font-semibold shadow-xl transition">
+            Réserver une table ✦
+          </a>
+        </div>
+        <div class="lg:w-1/2 reveal" style="transition-delay: 0.2s;">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
+            <img src="../assets/img/demos/traiteur-ambiance.webp" alt="Ambiance du restaurant" class="w-full h-[450px] object-cover transition-transform duration-700 hover:scale-105" width="1024" height="766" loading="lazy" decoding="async" />
+            <div class="absolute bottom-4 left-4 bg-blue/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+              ❤️ Recette de grand‑mère
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOS PLATS ==================== -->
+  <section id="plats" class="py-24 bg-white/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-coral text-sm font-semibold uppercase tracking-[0.3em]">— Nos spécialités —</span>
+        <h2 class="font-script text-4xl md:text-5xl font-bold text-blue mt-2">Plats signatures</h2>
+        <div class="w-24 h-1 bg-coral mx-auto mt-4"></div>
+        <p class="mt-4 text-blue/60">Des recettes authentiques, généreuses et pleines de couleurs</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Plat 1 -->
+        <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-lg border border-white/50">
+          <div class="overflow-hidden h-64">
+            <img src="../assets/img/demos/traiteur-plat-cari.webp" alt="Cari poulet" class="w-full h-full object-cover" width="1024" height="572" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-script text-2xl font-bold text-blue">Cari poulet</h3>
+            <p class="text-sm text-blue/60 mt-1">Poulet fermier mariné dans un mélange d’épices, mijoté avec des oignons et des tomates. Servi avec riz, grains et rougail.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="bg-coral/10 text-coral px-3 py-0.5 rounded-full text-xs font-medium">⭐⭐⭐⭐⭐</span>
+              <span class="bg-green/10 text-green px-3 py-0.5 rounded-full text-xs font-medium">Halal</span>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-red font-bold text-lg">16,00 €</span>
+              <a href="#contact" class="text-coral font-medium hover:text-red transition">Réserver →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plat 2 -->
+        <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-lg border border-white/50">
+          <div class="overflow-hidden h-64">
+            <img src="../assets/img/demos/traiteur-plat-rougail.webp" alt="Rougail saucisse" class="w-full h-full object-cover" width="1024" height="572" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-script text-2xl font-bold text-blue">Rougail saucisse</h3>
+            <p class="text-sm text-blue/60 mt-1">Saucisses fumées revenue avec des oignons, des tomates fraîches et un bouquet d’épices. Accompagné de riz ou de lentilles.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="bg-coral/10 text-coral px-3 py-0.5 rounded-full text-xs font-medium">⭐⭐⭐⭐⭐</span>
+              <span class="bg-red/10 text-red px-3 py-0.5 rounded-full text-xs font-medium">Épicé</span>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-red font-bold text-lg">18,00 €</span>
+              <a href="#contact" class="text-coral font-medium hover:text-red transition">Réserver →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plat 3 -->
+        <div class="dish-card bg-white rounded-3xl overflow-hidden shadow-lg border border-white/50">
+          <div class="overflow-hidden h-64">
+            <img src="../assets/img/demos/traiteur-plat-samoussas.webp" alt="Samoussas" class="w-full h-full object-cover" width="1024" height="572" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-script text-2xl font-bold text-blue">Assortiment samoussas</h3>
+            <p class="text-sm text-blue/60 mt-1">Samoussas croustillants fourrés au poulet, bœuf ou légumes, servis avec une sauce piment maison.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="bg-coral/10 text-coral px-3 py-0.5 rounded-full text-xs font-medium">⭐⭐⭐⭐⭐</span>
+              <span class="bg-green/10 text-green px-3 py-0.5 rounded-full text-xs font-medium">Végétarien</span>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-red font-bold text-lg">12,00 €</span>
+              <a href="#contact" class="text-coral font-medium hover:text-red transition">Réserver →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARTE ==================== -->
+  <section id="carte" class="py-24 bg-creole/50 relative leaf-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-coral text-sm font-semibold uppercase tracking-[0.3em]">— La carte —</span>
+        <h2 class="font-script text-4xl md:text-5xl font-bold text-blue mt-2">Nos spécialités</h2>
+        <div class="w-24 h-1 bg-coral mx-auto mt-4"></div>
+        <p class="mt-4 text-blue/60">Découvrez une sélection de plats typiques, préparés avec soin</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal">
+        <div class="flex justify-between border-b border-coral/20 pb-3">
+          <span class="font-script text-xl font-bold text-blue">Cari poulet</span>
+          <span class="text-red font-semibold">16,00 €</span>
+        </div>
+        <div class="flex justify-between border-b border-coral/20 pb-3">
+          <span class="font-script text-xl font-bold text-blue">Rougail saucisse</span>
+          <span class="text-red font-semibold">18,00 €</span>
+        </div>
+        <div class="flex justify-between border-b border-coral/20 pb-3">
+          <span class="font-script text-xl font-bold text-blue">Samoussas (6 pièces)</span>
+          <span class="text-red font-semibold">12,00 €</span>
+        </div>
+        <div class="flex justify-between border-b border-coral/20 pb-3">
+          <span class="font-script text-xl font-bold text-blue">Boucané (viande fumée)</span>
+          <span class="text-red font-semibold">20,00 €</span>
+        </div>
+        <div class="flex justify-between border-b border-coral/20 pb-3">
+          <span class="font-script text-xl font-bold text-blue">Poisson grillé (marlin)</span>
+          <span class="text-red font-semibold">22,00 €</span>
+        </div>
+        <div class="flex justify-between border-b border-coral/20 pb-3">
+          <span class="font-script text-xl font-bold text-blue">Gâteau patate douce (dessert)</span>
+          <span class="text-red font-semibold">8,00 €</span>
+        </div>
+        <div class="flex justify-between border-b border-coral/20 pb-3 col-span-1 md:col-span-2">
+          <span class="font-script text-xl font-bold text-blue">Assiette dégustation (3 plats + dessert)</span>
+          <span class="text-red font-semibold">42,00 €</span>
+        </div>
+      </div>
+      <div class="text-center mt-8 reveal">
+        <a href="#contact" class="btn-coral text-white px-8 py-3 rounded-full font-semibold shadow-xl transition inline-block">
+          Réserver pour déguster ✦
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TÉMOIGNAGES ==================== -->
+  <section id="temoignages" class="py-24 bg-white/80 relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-10">
+      <img src="../assets/img/demos/traiteur-marche.webp" alt="Ambiance" class="w-full h-full object-cover" width="1024" height="572" loading="lazy" decoding="async" />
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="text-coral text-sm font-semibold uppercase tracking-[0.3em]">— Ils parlent de nous —</span>
+        <h2 class="font-script text-4xl md:text-5xl font-bold text-blue mt-2">Témoignages</h2>
+        <div class="w-24 h-1 bg-coral mx-auto mt-4"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card p-8 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition duration-500 reveal">
+          <div class="flex text-coral text-2xl">✦✦✦✦✦</div>
+          <p class="mt-4 text-blue/70 italic leading-relaxed">"Un moment de pur bonheur ! Les plats sont savoureux, l’accueil chaleureux. Je recommande à tous."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-green/20 flex items-center justify-center text-blue font-bold">SM</div>
+            <div><p class="font-semibold text-blue">Sophie & Marc</p><p class="text-xs text-blue/50">Venus en couple</p></div>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition duration-500 reveal" style="transition-delay: 0.15s;">
+          <div class="flex text-coral text-2xl">✦✦✦✦✦</div>
+          <p class="mt-4 text-blue/70 italic leading-relaxed">"La meilleure cuisine créole de Saint‑Pierre ! Les épices sont parfaitement dosées, et l’ambiance est vraiment typique."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-coral/20 flex items-center justify-center text-blue font-bold">JP</div>
+            <div><p class="font-semibold text-blue">Jean‑Philippe</p><p class="text-xs text-blue/50">Voyageur solo</p></div>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition duration-500 reveal" style="transition-delay: 0.3s;">
+          <div class="flex text-coral text-2xl">✦✦✦✦✦</div>
+          <p class="mt-4 text-blue/70 italic leading-relaxed">"Un régal pour les papilles et pour les yeux. La décoration est magnifique, on s’y sent comme à la maison."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-red/20 flex items-center justify-center text-blue font-bold">ET</div>
+            <div><p class="font-semibold text-blue">Élodie & Thibault</p><p class="text-xs text-blue/50">Famille avec enfants</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT / RÉSERVATION ==================== -->
+  <section id="contact" class="py-16 bg-creole/50 relative leaf-pattern">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 reveal">
+        <span class="text-coral text-sm font-semibold uppercase tracking-[0.3em]">— Réserver une table —</span>
+        <h2 class="font-script text-4xl md:text-5xl font-bold text-blue mt-2">Contact & réservation</h2>
+        <div class="w-24 h-1 bg-coral mx-auto mt-4"></div>
+        <p class="mt-4 text-blue/60">Une question ? Une envie de découvrir nos plats ? N’hésitez pas à nous joindre.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+        <!-- Colonne gauche : infos + photo -->
+        <div class="bg-white/60 p-8 rounded-3xl border border-coral/20 flex flex-col justify-between space-y-6">
+          <div>
+            <h3 class="font-script text-3xl font-bold text-blue">Case Créole</h3>
+            <p class="text-blue/60 mt-1">Restaurant familial</p>
+            <p class="text-blue/60">📍 Saint‑Pierre, La Réunion</p>
+          </div>
+          <div>
+            <p class="flex items-center gap-3"><span class="text-coral text-xl">📞</span> <a href="tel:+262692123456" class="hover:text-coral transition font-medium">+262 692 12 34 56</a></p>
+            <p class="flex items-center gap-3"><span class="text-coral text-xl">✉️</span> <a href="mailto:contact@casecreole.re" class="hover:text-coral transition font-medium">contact@casecreole.re</a></p>
+            <p class="flex items-center gap-3"><span class="text-coral text-xl">💬</span> WhatsApp / Messenger</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-blue">Horaires d’ouverture</h4>
+            <p class="text-blue/60 text-sm">Lun - Sam : 11h - 14h30 · 18h - 22h</p>
+            <p class="text-blue/60 text-sm">Dimanche : 11h - 15h (sur réservation)</p>
+          </div>
+          <div class="flex gap-4 text-3xl">
+            <span class="hover:text-coral transition cursor-pointer">📷</span>
+            <span class="hover:text-coral transition cursor-pointer">📘</span>
+            <span class="hover:text-coral transition cursor-pointer">🐦</span>
+          </div>
+          <div class="rounded-xl overflow-hidden shadow-lg border-2 border-white">
+            <img src="../assets/img/demos/traiteur-marche.webp" alt="Marché de Saint-Pierre" class="w-full h-48 object-cover" width="1024" height="572" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+        <!-- Colonne droite : formulaire de réservation -->
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="font-script text-2xl font-bold text-blue mb-4">Réserver une table</h3>
+          <form id="reservationForm" class="space-y-4">
+            <div>
+              <label for="champ-1" class="block text-sm font-medium text-blue/70">Nom complet</label>
+              <input id="champ-1" type="text" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="Votre nom" required />
+            </div>
+            <div>
+              <label for="champ-2" class="block text-sm font-medium text-blue/70">Téléphone</label>
+              <input id="champ-2" type="tel" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="06 92 12 34 56" required />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="champ-3" class="block text-sm font-medium text-blue/70">Date</label>
+                <input id="champ-3" type="date" class="w-full px-4 py-3 rounded-xl input-luxe" required />
+              </div>
+              <div>
+                <label for="champ-4" class="block text-sm font-medium text-blue/70">Heure</label>
+                <select id="champ-4" class="w-full px-4 py-3 rounded-xl input-luxe">
+                  <option>12h00</option>
+                  <option>12h30</option>
+                  <option>13h00</option>
+                  <option>19h00</option>
+                  <option>19h30</option>
+                  <option>20h00</option>
+                  <option>20h30</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="champ-5" class="block text-sm font-medium text-blue/70">Nombre de personnes</label>
+              <input id="champ-5" type="number" min="1" max="20" value="2" class="w-full px-4 py-3 rounded-xl input-luxe" required />
+            </div>
+            <div>
+              <label for="champ-6" class="block text-sm font-medium text-blue/70">Message (allergies, occasion...)</label>
+              <textarea id="champ-6" rows="2" class="w-full px-4 py-3 rounded-xl input-luxe" placeholder="Précisez votre demande..."></textarea>
+            </div>
+            <button type="submit" class="w-full btn-coral text-white py-3.5 rounded-xl font-semibold shadow-lg transition text-lg">
+              Réserver ✦
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-blue text-white/80 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-coral text-xl">✦</span>
+        <span class="font-script font-bold text-white text-xl">Case Créole</span>
+        <span class="text-white/30">|</span>
+        <span class="text-white/50">Restaurant tropical</span>
+      </div>
+      <div class="flex gap-6 text-white/40">
+        <a href="#top" class="hover:text-coral transition">Mentions légales</a>
+        <a href="#top" class="hover:text-coral transition">Confidentialité</a>
+        <a href="#top" class="hover:text-coral transition">CGV</a>
+      </div>
+      <div class="text-white/30 text-xs">
+        © 2026 Case Créole — Site démo, informations fictives
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== STICKY CTA MOBILE ==================== -->
+  <div class="sticky-cta">
+    <a href="#contact" class="block btn-coral text-white text-center py-3.5 rounded-full font-semibold shadow-2xl transition text-base">
+      🍽️ Réserver maintenant ✦
+    </a>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ===== MENU MOBILE (hamburger) =====
+    const menuToggle = document.getElementById('menuToggle');
+    const menuImmersif = document.getElementById('menuImmersif');
+    const closeMenu = document.getElementById('closeMenu');
+
+    function openMenu() {
+      menuImmersif.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuFn() {
+      menuImmersif.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', openMenu);
+    }
+    if (closeMenu) {
+      closeMenu.addEventListener('click', closeMenuFn);
+    }
+
+    // Fermer en cliquant sur le fond (en dehors des liens)
+    menuImmersif.addEventListener('click', function(e) {
+      if (e.target === menuImmersif) {
+        closeMenuFn();
+      }
+    });
+
+    // Fermer avec la touche Échap
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menuImmersif.classList.contains('open')) {
+        closeMenuFn();
+      }
+    });
+
+    // ===== FERMER LE MENU APRÈS CLIC SUR UN LIEN =====
+    document.querySelectorAll('.nav-immersive ul li a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        closeMenuFn();
+      });
+    });
+
+    // ===== FORMULAIRE DE RÉSERVATION =====
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('✅ Votre réservation a bien été prise en compte !\nNous vous attendons à Case Créole.\n📍 Saint‑Pierre, La Réunion');
+      this.reset();
+    });
+
+    // ===== REVEAL AU SCROLL =====
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("kreapro-theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored ? stored === "dark" : prefersDark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <title>Page introuvable — KréaPro</title>
+  <meta name="description" content="Cette page n'existe pas ou plus. Retournez à l'accueil ou contactez KréaPro, agence web &amp; design à La Réunion." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
+  <meta name="theme-color" content="#3D0B37" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+  <div class="progress-bar no-print" aria-hidden="true"><div class="progress-bar-fill" data-progress-fill></div></div>
+
+  <!-- Sprite d'icônes réutilisable -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 9-9 4 0 8 3 8 8a7 7 0 0 1-7 7c-1 0-2-.2-3-1z"/><path d="M4 13c3-1 6-3 9-9"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+    <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+  </svg>
+
+  <!-- ===== HEADER ===== -->
+  <div data-kap-numerik-banner class="no-print bg-willow-green px-4 py-2 text-center text-xs font-semibold text-midnight-violet sm:text-sm">
+    <a href="/prix.html#aide-kap-numerik" class="hover:underline">Aide Région Réunion (Kap Numérik) : jusqu’à 80&nbsp;% de votre site pris en charge, sous conditions — en savoir plus</a>
+  </div>
+  <header class="sticky top-0 z-40 border-b border-midnight-violet/5 bg-cream/80 backdrop-blur-md dark:border-cream/10 dark:bg-midnight-violet/85">
+    <div class="container-page flex h-20 items-center justify-between">
+      <a href="/index.html" class="flex items-center gap-2.5" aria-label="KréaPro — Accueil">
+        <img src="/assets/img/logo/kreapro-symbole.svg" alt="" width="36" height="36" class="h-9 w-9 shrink-0" />
+        <span class="font-heading text-lg font-bold text-midnight-violet sm:text-xl dark:text-cream">Kréa<span class="text-blackberry-cream dark:text-tea-green">Pro</span></span>
+      </a>
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Navigation principale">
+        <a data-nav-link href="/index.html" class="nav-link px-2">Accueil</a>
+        <a data-nav-link href="/services.html" class="nav-link px-2">Services</a>
+        <a data-nav-link href="/prix.html" class="nav-link px-2">Tarifs</a>
+        <a data-nav-link href="/portfolio.html" class="nav-link px-2">Portfolio</a>
+        <a data-nav-link href="/a-propos.html" class="nav-link px-2">À propos</a>
+        <button type="button" data-search-open class="ml-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 hover:text-midnight-violet dark:text-cream/80 dark:hover:bg-cream/10 dark:hover:text-cream" aria-label="Rechercher sur le site">
+          <svg class="h-5 w-5"><use href="#icon-search" /></svg>
+        </button>
+        <button type="button" data-theme-toggle class="inline-flex h-10 w-10 items-center justify-center rounded-full text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 hover:text-midnight-violet dark:text-cream/80 dark:hover:bg-cream/10 dark:hover:text-cream" aria-pressed="false" aria-label="Basculer le mode sombre">
+          <svg class="h-5 w-5 dark:hidden"><use href="#icon-moon" /></svg>
+          <svg class="hidden h-5 w-5 dark:block"><use href="#icon-sun" /></svg>
+        </button>
+        <a href="/contact.html" class="btn-primary !min-h-0 ml-2 px-5 py-2.5 text-sm">Parlons de votre projet</a>
+      </nav>
+      <button data-nav-toggle type="button" class="inline-flex items-center justify-center rounded-full p-2.5 text-midnight-violet dark:text-cream md:hidden" aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg class="h-6 w-6"><use href="#icon-menu" /></svg>
+      </button>
+    </div>
+    <div data-nav-menu class="hidden flex-col gap-1 border-t border-midnight-violet/5 bg-cream px-5 pb-6 pt-3 dark:border-cream/10 dark:bg-midnight-violet md:hidden">
+      <a href="/index.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">Accueil</a>
+      <a href="/services.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">Services</a>
+      <a href="/prix.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">Tarifs</a>
+      <a href="/portfolio.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">Portfolio</a>
+      <a href="/a-propos.html" class="rounded-lg px-3 py-3 text-sm font-semibold text-midnight-violet/80 transition-colors hover:bg-midnight-violet/5 dark:text-cream/80 dark:hover:bg-cream/5">À propos</a>
+      <div class="mt-2 flex items-center gap-2 border-t border-midnight-violet/5 pt-3 dark:border-cream/10">
+        <button type="button" data-search-open class="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-midnight-violet/10 px-4 py-2.5 text-sm font-semibold text-midnight-violet transition-colors hover:bg-midnight-violet/5 dark:border-cream/15 dark:text-cream dark:hover:bg-cream/5">
+          <svg class="h-4 w-4"><use href="#icon-search" /></svg> Rechercher
+        </button>
+        <button type="button" data-theme-toggle class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-midnight-violet/10 text-midnight-violet transition-colors hover:bg-midnight-violet/5 dark:border-cream/15 dark:text-cream dark:hover:bg-cream/5" aria-pressed="false" aria-label="Basculer le mode sombre">
+          <svg class="h-5 w-5 dark:hidden"><use href="#icon-moon" /></svg>
+          <svg class="hidden h-5 w-5 dark:block"><use href="#icon-sun" /></svg>
+        </button>
+      </div>
+      <a href="/contact.html" class="btn-primary mt-2">Parlons de votre projet</a>
+    </div>
+  </header>
+
+  <main id="main" class="relative overflow-hidden py-20 sm:py-28">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-tea-green/40 via-cream to-cream dark:from-blackberry-cream/15 dark:via-midnight-violet dark:to-midnight-violet"></div>
+    <div class="absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full bg-willow-green/25 blur-[100px]"></div>
+    <div class="container-page text-center" data-reveal>
+      <p class="section-eyebrow justify-center"><svg class="h-4 w-4"><use href="#icon-leaf" /></svg> Erreur 404</p>
+      <p class="font-heading text-7xl font-extrabold text-blackberry-cream sm:text-8xl">404</p>
+      <h1 class="mx-auto mt-3 max-w-xl text-3xl leading-tight sm:text-4xl">Perdu en chemin ? Ça arrive, même sur une île aussi petite.</h1>
+      <p class="mx-auto mt-4 max-w-md text-ink/70">La page cherchée n'existe pas, plus, ou son adresse a changé. Cherchez-la, ou repartez d'ici.</p>
+
+      <button type="button" data-search-open class="mx-auto mt-8 flex w-full max-w-md items-center gap-3 rounded-full border-2 border-midnight-violet/15 bg-white/70 px-5 py-3.5 text-left text-sm text-ink/60 shadow-soft transition-colors hover:border-midnight-violet/30 dark:border-cream/20 dark:bg-white/5 dark:text-cream/60">
+        <svg class="h-5 w-5 shrink-0"><use href="#icon-search" /></svg>
+        Rechercher une page…
+      </button>
+
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href="/index.html" class="btn-primary">Retour à l'accueil</a>
+        <a href="/contact.html" class="btn-ghost">Nous contacter</a>
+      </div>
+
+      <div class="mx-auto mt-14 grid max-w-3xl gap-4 sm:grid-cols-2" data-reveal-group>
+        <a href="/services.html" class="card !p-5 text-left" data-reveal>
+          <svg class="h-5 w-5 text-blackberry-cream"><use href="#icon-monitor" /></svg>
+          <h2 class="mt-3 font-heading font-bold text-midnight-violet dark:text-cream">Services</h2>
+          <p class="mt-1 text-sm text-ink/70">Ce que KréaPro peut créer pour vous.</p>
+        </a>
+        <a href="/prix.html" class="card !p-5 text-left" data-reveal>
+          <svg class="h-5 w-5 text-blackberry-cream"><use href="#icon-check-circle" /></svg>
+          <h2 class="mt-3 font-heading font-bold text-midnight-violet dark:text-cream">Tarifs</h2>
+          <p class="mt-1 text-sm text-ink/70">Des prix clairs, dès 1 200 €.</p>
+        </a>
+        <a href="/portfolio.html" class="card !p-5 text-left" data-reveal>
+          <svg class="h-5 w-5 text-blackberry-cream"><use href="#icon-image" /></svg>
+          <h2 class="mt-3 font-heading font-bold text-midnight-violet dark:text-cream">Portfolio</h2>
+          <p class="mt-1 text-sm text-ink/70">Des exemples de réalisations.</p>
+        </a>
+        <a href="/contact.html" class="card !p-5 text-left" data-reveal>
+          <svg class="h-5 w-5 text-blackberry-cream"><use href="#icon-chat" /></svg>
+          <h2 class="mt-3 font-heading font-bold text-midnight-violet dark:text-cream">Contact</h2>
+          <p class="mt-1 text-sm text-ink/70">Une question ? Écrivez-nous.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-midnight-violet text-cream">
+    <div class="container-page grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <p class="flex items-center gap-2.5">
+          <img src="/assets/img/logo/kreapro-symbole-blanc.svg" alt="" width="30" height="30" class="h-8 w-8 shrink-0" />
+          <span class="font-heading text-lg font-bold text-cream">Kréa<span class="text-willow-green">Pro</span></span>
+        </p>
+        <p class="mt-3 text-sm text-cream/70">Sites web et identités visuelles pour les entrepreneurs de La Réunion. Simple, rapide, et 100 % à vous.</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-tea-green">Navigation</p>
+        <ul class="mt-4 space-y-2 text-sm text-cream/80">
+          <li><a href="/index.html" class="hover:text-willow-green">Accueil</a></li>
+          <li><a href="/services.html" class="hover:text-willow-green">Services</a></li>
+          <li><a href="/prix.html" class="hover:text-willow-green">Tarifs</a></li>
+          <li><a href="/portfolio.html" class="hover:text-willow-green">Portfolio</a></li>
+          <li><a href="/a-propos.html" class="hover:text-willow-green">À propos</a></li>
+          <li><a href="/contact.html" class="hover:text-willow-green">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-tea-green">Contact</p>
+        <ul class="mt-4 space-y-2 text-sm text-cream/80">
+          <li><a href="mailto:contact@kreapro.re" class="inline-flex items-center gap-2 hover:text-willow-green"><svg class="h-4 w-4"><use href="#icon-mail" /></svg> contact@kreapro.re</a></li>
+          <li><a href="https://wa.me/262693860802" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-willow-green"><svg class="h-4 w-4"><use href="#icon-chat" /></svg> WhatsApp</a></li>
+          <li class="inline-flex items-center gap-2"><svg class="h-4 w-4"><use href="#icon-map-pin" /></svg> Saint-Denis, La Réunion (974)</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-tea-green">Informations</p>
+        <ul class="mt-4 space-y-2 text-sm text-cream/80">
+          <li><a href="/mentions-legales.html" class="hover:text-willow-green">Mentions légales</a></li>
+          <li><a href="/politique-confidentialite.html" class="hover:text-willow-green">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Newsletter — même service Web3Forms que le formulaire de contact. -->
+    <div class="no-print border-t border-cream/10">
+      <div class="container-page flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
+        <div class="text-center sm:text-left">
+          <p class="font-heading text-base font-bold text-cream">Un conseil utile par mois, pas plus.</p>
+          <p class="mt-1 text-sm text-cream/70">Visibilité locale et astuces web pour votre activité. Zéro sollicitation, désinscription en un clic.</p>
+        </div>
+        <form data-newsletter-form action="https://api.web3forms.com/submit" method="POST" class="flex w-full max-w-sm flex-col gap-2.5 sm:w-auto sm:flex-row" novalidate>
+          <input type="hidden" name="access_key" value="d095f833-961f-477f-b9b2-c50c32571709" />
+          <input type="hidden" name="subject" value="Nouvelle inscription newsletter — site KréaPro" />
+          <input type="hidden" name="from_name" value="Newsletter KréaPro" />
+          <label for="newsletter-email" class="sr-only">Adresse e-mail</label>
+          <input id="newsletter-email" name="email" type="email" required autocomplete="email" placeholder="Votre e-mail" class="newsletter-input" />
+          <button type="submit" data-loading-label="Inscription…" class="btn-primary !min-h-0 px-5 py-3 text-sm">S'inscrire</button>
+        </form>
+        <div data-newsletter-confirmation tabindex="-1" class="hidden max-w-sm rounded-xl2 bg-willow-green/15 px-5 py-3 text-center text-sm font-semibold text-tea-green sm:text-left" role="status">
+          Merci, vous êtes inscrit(e) ! Vous recevrez nos prochains conseils par e-mail.
+        </div>
+        <p data-newsletter-error class="hidden text-sm text-red-300" role="alert">L'inscription a échoué. Réessayez, ou écrivez-nous directement à contact@kreapro.re.</p>
+      </div>
+    </div>
+
+    <div class="border-t border-cream/10">
+      <div class="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-cream/60 sm:flex-row">
+        <p>© 2026 KréaPro. Tous droits réservés.</p>
+        <div class="flex gap-4">
+          <a href="/mentions-legales.html" class="hover:text-cream">Mentions légales</a>
+          <a href="/politique-confidentialite.html" class="hover:text-cream">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton de contact flottant (WhatsApp / e-mail / téléphone) -->
+  <div class="contact-fab no-print">
+    <div data-fab-menu class="contact-fab-menu hidden">
+      <a href="https://wa.me/262693860802?text=Bonjour%20KréaPro%2C%20je%20souhaite%20discuter%20d%27un%20projet." target="_blank" rel="noopener" class="contact-fab-item">
+        <svg class="h-4 w-4"><use href="#icon-chat" /></svg> WhatsApp
+      </a>
+      <a href="mailto:contact@kreapro.re" class="contact-fab-item">
+        <svg class="h-4 w-4"><use href="#icon-mail" /></svg> Email
+      </a>
+      <a href="tel:+262693860802" class="contact-fab-item">
+        <svg class="h-4 w-4"><use href="#icon-phone" /></svg> Appeler
+      </a>
+    </div>
+    <button type="button" data-fab-toggle class="contact-fab-toggle" aria-expanded="false" aria-label="Options de contact">
+      <svg class="h-6 w-6"><use href="#icon-chat" /></svg>
+    </button>
+  </div>
+
+  <!-- Retour en haut de page -->
+  <button type="button" data-back-to-top class="back-to-top no-print" aria-label="Retour en haut de page">
+    <svg class="h-5 w-5"><use href="#icon-arrow-up" /></svg>
+  </button>
+
+  <!-- Recherche du site -->
+  <div data-search-backdrop class="search-modal-backdrop no-print hidden">
+    <div class="search-modal" role="dialog" aria-modal="true" aria-label="Recherche">
+      <div class="flex items-center gap-3">
+        <svg class="h-5 w-5 shrink-0 text-midnight-violet/50 dark:text-cream/50"><use href="#icon-search" /></svg>
+        <input type="search" data-search-input aria-label="Rechercher une page" class="search-modal-input" placeholder="Rechercher une page…" />
+      </div>
+      <div data-search-results class="mt-4 max-h-80 space-y-1 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- Bandeau d'information sur le stockage local -->
+  <div data-storage-notice class="storage-notice hidden no-print">
+    <div class="storage-notice-inner">
+      <p>Stockage local utilisé uniquement pour votre préférence d'affichage. Aucun cookie de suivi.</p>
+      <button type="button" data-storage-dismiss class="shrink-0 rounded-full bg-midnight-violet px-4 py-1.5 text-xs font-semibold text-cream transition-colors hover:brightness-110 dark:bg-cream dark:text-midnight-violet">J'ai compris</button>
+    </div>
+  </div>
+
+  <script src="/assets/js/search-index.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

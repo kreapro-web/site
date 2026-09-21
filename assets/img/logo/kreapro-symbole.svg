@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="KréaPro">
+  <title>KréaPro — symbole</title>
+  <rect width="120" height="120" rx="30" fill="#3D0B37"/>
+  <path d="M40 20L40 100" fill="none" stroke="#F3F9D2" stroke-width="13" stroke-linecap="round"/>
+  <path d="M40 66L76 100" fill="none" stroke="#F3F9D2" stroke-width="13" stroke-linecap="round"/>
+  <path d="M41 67C47 45 66 27 91 23C85 46 68 62 47 69Z" fill="#C0D684"/>
+  <path d="M44 67C55 55 73 38 86 26" fill="none" stroke="#F3F9D2" stroke-width="3.4" stroke-linecap="round"/>
+</svg>

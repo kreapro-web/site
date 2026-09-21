@@ -1,0 +1,562 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Épicerie Peï Bio — Épicerie bio &amp; locale à Saint-André | La Réunion</title>
+  <meta name="description" content="Épicerie bio et locale à Saint-André, La Réunion. Fruits, épices et produits artisanaux de producteurs réunionnais. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="canonical" href="https://kreapro.re/demos/epicerie.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kreapro.re/demos/epicerie.html" />
+  <meta property="og:title" content="Épicerie Peï Bio — Épicerie bio &amp; locale à Saint-André | La Réunion" />
+  <meta property="og:description" content="Épicerie bio et locale à Saint-André, La Réunion. Fruits, épices et produits artisanaux de producteurs réunionnais. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta property="og:image" content="https://kreapro.re/assets/img/og/demo-epicerie.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="KréaPro — Agence Web &amp; Design à La Réunion" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Épicerie Peï Bio — Épicerie bio &amp; locale à Saint-André | La Réunion" />
+  <meta name="twitter:description" content="Épicerie bio et locale à Saint-André, La Réunion. Fruits, épices et produits artisanaux de producteurs réunionnais. Site démo — toutes les informations sur cette page sont fictives." />
+  <meta name="twitter:image" content="https://kreapro.re/assets/img/og/demo-epicerie.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#3B413C" />
+
+  <!-- POLICES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#3B413C',
+            ash: '#9DB5B2',
+            cyan: '#DAF0EE',
+            aqua: '#94D1BE',
+          },
+          fontFamily: {
+            title: ['Abril Fatface', 'serif'],
+            body: ['Cormorant Garamond', 'serif'],
+          },
+          animation: {
+            'zoom-slow': 'zoom 20s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            zoom: {
+              '0%': { transform: 'scale(1)' },
+              '100%': { transform: 'scale(1.05)' },
+            },
+          }
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #FFFFFF; color: #3B413C; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(157, 181, 178, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .btn-aqua {
+      background: #94D1BE;
+      transition: all 0.3s ease;
+      color: #3B413C;
+    }
+    .btn-aqua:hover {
+      background: #7BBFAA;
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(148, 209, 190, 0.3);
+    }
+
+    .btn-ghost {
+      border: 1px solid #9DB5B2;
+      transition: all 0.3s ease;
+      color: #3B413C;
+    }
+    .btn-ghost:hover {
+      background: #DAF0EE;
+      border-color: #94D1BE;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(148, 209, 190, 0.2);
+      padding: 10px 16px;
+      display: none;
+    }
+    @media (max-width: 767px) { .sticky-cta { display: block; } }
+
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: block; }
+
+    .input-nature {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #9DB5B2;
+      transition: all 0.3s ease;
+    }
+    .input-nature:focus {
+      border-color: #94D1BE;
+      box-shadow: 0 0 0 4px rgba(148, 209, 190, 0.1);
+      background: white;
+    }
+
+    .product-card {
+      transition: all 0.4s ease;
+      background: white;
+      border: 1px solid rgba(157, 181, 178, 0.2);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(148, 209, 190, 0.1);
+      border-color: #94D1BE;
+    }
+    .product-card img {
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .badge-aqua {
+      display: inline-block;
+      background: #DAF0EE;
+      color: #3B413C;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 0.15rem 0.9rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+    }
+
+    .badge-bio {
+      display: inline-block;
+      background: #94D1BE;
+      color: white;
+      font-weight: 600;
+      font-size: 0.55rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .pattern-dots {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%239DB5B2' opacity='0.15'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 40px 40px;
+    }
+
+    .pattern-lines {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M0 30 L60 30' stroke='%239DB5B2' stroke-width='0.5' opacity='0.06'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 60px 60px;
+    }
+
+    .map-container {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body id="top" class="font-body antialiased">
+<!-- Bandeau retour vers le portfolio -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:#0f0b37;color:#F3F9D2;font-family:Inter,system-ui,sans-serif;">
+    <div style="max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.65rem 1.5rem;font-size:0.875rem;font-weight:600;">
+      <a href="../portfolio.html" style="color:#F3F9D2;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">&larr; Retour au portfolio</a>
+      <a href="../projets/epicerie-pei-bio.html" style="color:#C9E4A6;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;">Voir l&rsquo;étude de cas&nbsp;&rarr;</a>
+    </div>
+  </div>
+  <script>document.body.style.paddingTop="52px";</script>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-ash/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <a href="#top" class="font-title text-2xl text-charcoal flex items-center gap-2">
+        <span class="text-aqua text-3xl">🌿</span>
+        Épicerie Peï Bio
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-charcoal/70">
+        <a href="#produits" class="hover:text-aqua transition border-b-2 border-transparent hover:border-aqua pb-1">Nos produits</a>
+        <a href="#producteurs" class="hover:text-aqua transition border-b-2 border-transparent hover:border-aqua pb-1">Producteurs</a>
+        <a href="#magasin" class="hover:text-aqua transition border-b-2 border-transparent hover:border-aqua pb-1">Le magasin</a>
+        <a href="#contact" class="hover:text-aqua transition border-b-2 border-transparent hover:border-aqua pb-1">Contact</a>
+        <a href="#contact" class="btn-aqua px-6 py-2.5 rounded-full text-sm font-semibold shadow transition">
+          Visiter ✦
+        </a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-aqua/10 transition" aria-label="Menu">
+        <svg class="w-6 h-6 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden bg-white/95 backdrop-blur-md border-t border-ash/10 px-4 py-4 space-y-3 text-sm font-medium mobile-menu">
+      <a href="#produits" class="block hover:text-aqua transition">Nos produits</a>
+      <a href="#producteurs" class="block hover:text-aqua transition">Producteurs</a>
+      <a href="#magasin" class="block hover:text-aqua transition">Le magasin</a>
+      <a href="#contact" class="block hover:text-aqua transition">Contact</a>
+      <a href="#contact" class="block btn-aqua text-charcoal text-center px-5 py-2.5 rounded-full font-semibold">Visiter ✦</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img src="../assets/img/demos/epicerie-hero.webp" alt="Épicerie Peï Bio" class="w-full h-full object-cover animate-zoom-slow" width="1024" height="572" />
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-charcoal/10 to-transparent"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center text-white py-20 z-10 reveal">
+      <div class="badge-aqua inline-block mb-4">✦ Bio & local · Saint-André</div>
+      <h1 class="font-title text-5xl sm:text-6xl md:text-7xl font-bold leading-tight drop-shadow-2xl">
+        Épicerie Peï Bio
+        <span class="block text-3xl sm:text-4xl md:text-5xl font-body font-light text-white/90 italic mt-2">Le goût de l’authentique</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto font-light tracking-wide drop-shadow-lg">
+        Fruits, légumes, épices et produits artisanaux, 100 % bio et sélectionnés auprès de producteurs de La Réunion.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="btn-aqua px-8 py-3 rounded-full font-title text-lg shadow-lg transition">
+          Venir au magasin ✦
+        </a>
+        <a href="#produits" class="btn-ghost px-8 py-3 rounded-full font-title text-sm text-white/90 transition">
+          Découvrir nos produits
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOS PRODUITS ==================== -->
+  <section id="produits" class="py-24 bg-cyan/30 pattern-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-ash text-sm font-semibold uppercase tracking-[0.3em] font-body">— Notre sélection —</span>
+        <h2 class="font-title text-4xl md:text-5xl text-charcoal mt-2">Produits bio</h2>
+        <div class="w-20 h-0.5 bg-aqua/60 mx-auto mt-4"></div>
+        <p class="mt-4 text-charcoal/50 max-w-xl mx-auto">Des saveurs authentiques, du champ à votre table</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Produit 1 : Miel -->
+        <div class="product-card rounded-2xl overflow-hidden shadow-sm">
+          <div class="overflow-hidden h-52">
+            <img src="../assets/img/demos/epicerie-miel.webp" alt="Miel bio" class="w-full h-full object-cover" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2">
+              <span class="badge-bio">Bio</span>
+              <span class="text-xs text-ash">⭐ Local</span>
+            </div>
+            <h3 class="font-title text-xl text-charcoal mt-1">Miel de la Réunion</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Miel de forêt, doux et floral.</p>
+            <div class="mt-4 flex items-center justify-between border-t border-ash/10 pt-3">
+              <span class="text-aqua font-bold text-lg">12,00 €</span>
+              <span class="text-xs text-ash">Pot 500g</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 2 : Confiture letchi -->
+        <div class="product-card rounded-2xl overflow-hidden shadow-sm">
+          <div class="overflow-hidden h-52">
+            <img src="../assets/img/demos/epicerie-confiture-letchi.webp" alt="Confiture letchi" class="w-full h-full object-cover" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2">
+              <span class="badge-bio">Bio</span>
+              <span class="text-xs text-ash">⭐ Artisanal</span>
+            </div>
+            <h3 class="font-title text-xl text-charcoal mt-1">Confiture letchi</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Letchis de Saint-André, sans conservateurs.</p>
+            <div class="mt-4 flex items-center justify-between border-t border-ash/10 pt-3">
+              <span class="text-aqua font-bold text-lg">8,50 €</span>
+              <span class="text-xs text-ash">Pot 380g</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 3 : Huile de coco -->
+        <div class="product-card rounded-2xl overflow-hidden shadow-sm">
+          <div class="overflow-hidden h-52">
+            <img src="../assets/img/demos/epicerie-huile-coco.webp" alt="Huile de coco" class="w-full h-full object-cover" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2">
+              <span class="badge-bio">Bio</span>
+              <span class="text-xs text-ash">⭐ Pressée à froid</span>
+            </div>
+            <h3 class="font-title text-xl text-charcoal mt-1">Huile de coco vierge</h3>
+            <p class="text-sm text-charcoal/60 mt-1">100 % noix de coco réunionnaise.</p>
+            <div class="mt-4 flex items-center justify-between border-t border-ash/10 pt-3">
+              <span class="text-aqua font-bold text-lg">9,90 €</span>
+              <span class="text-xs text-ash">Flacon 250ml</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 4 : Confiture passion -->
+        <div class="product-card rounded-2xl overflow-hidden shadow-sm">
+          <div class="overflow-hidden h-52">
+            <img src="../assets/img/demos/epicerie-confiture-passion.webp" alt="Confiture passion" class="w-full h-full object-cover" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2">
+              <span class="badge-bio">Bio</span>
+              <span class="text-xs text-ash">⭐ Artisanal</span>
+            </div>
+            <h3 class="font-title text-xl text-charcoal mt-1">Confiture passion</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Fruits de la passion, acidulé et gourmand.</p>
+            <div class="mt-4 flex items-center justify-between border-t border-ash/10 pt-3">
+              <span class="text-aqua font-bold text-lg">7,50 €</span>
+              <span class="text-xs text-ash">Pot 380g</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <p class="text-charcoal/50 text-sm italic border-t border-ash/10 pt-6 inline-block px-6">
+          ✦ Tous nos produits disponibles en magasin
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCTEURS ==================== -->
+  <section id="producteurs" class="py-24 bg-white pattern-lines">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 reveal">
+          <span class="text-ash text-sm font-semibold uppercase tracking-[0.3em] font-body">— Nos partenaires —</span>
+          <h2 class="font-title text-4xl md:text-5xl text-charcoal mt-2 leading-tight">
+            Des producteurs <span class="text-aqua">de confiance</span>
+          </h2>
+          <div class="w-16 h-0.5 bg-aqua/60 mt-4 mb-6"></div>
+          <p class="text-charcoal/70 leading-relaxed text-lg">
+            Nous sélectionnons des producteurs locaux passionnés, respectueux de l’environnement et de la qualité.
+            Chaque produit a une histoire et un savoir‑faire.
+          </p>
+          <ul class="mt-6 space-y-3 text-charcoal/70">
+            <li class="flex items-center gap-3"><span class="text-aqua text-xl">✦</span> Agriculture biologique certifiée</li>
+            <li class="flex items-center gap-3"><span class="text-aqua text-xl">✦</span> Circuits courts et solidaires</li>
+            <li class="flex items-center gap-3"><span class="text-aqua text-xl">✦</span> Produits frais et de saison</li>
+          </ul>
+        </div>
+        <div class="lg:w-1/2 reveal" style="transition-delay: 0.2s;">
+          <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white/50">
+            <img src="../assets/img/demos/epicerie-producteurs.webp" alt="Producteurs locaux" class="w-full h-[420px] object-cover transition-transform duration-700 hover:scale-105" width="1024" height="766" loading="lazy" decoding="async" />
+            <div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm text-charcoal px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+              🌱 Producteurs réunionnais
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LE MAGASIN ==================== -->
+  <section id="magasin" class="py-24 bg-cyan/20 pattern-dots">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-ash text-sm font-semibold uppercase tracking-[0.3em] font-body">— Notre boutique —</span>
+        <h2 class="font-title text-4xl md:text-5xl text-charcoal mt-2">Un espace chaleureux</h2>
+        <div class="w-16 h-0.5 bg-aqua/60 mx-auto mt-4"></div>
+        <p class="mt-4 text-charcoal/50 max-w-xl mx-auto">À Saint-André, une épicerie pleine de couleurs et de saveurs</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="rounded-3xl overflow-hidden shadow-lg border-4 border-white/60 reveal">
+          <img src="../assets/img/demos/epicerie-interieur.webp" alt="Intérieur boutique" class="w-full h-[340px] object-cover transition-transform duration-700 hover:scale-105" width="1024" height="572" loading="lazy" decoding="async" />
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-lg border-4 border-white/60 reveal" style="transition-delay: 0.2s;">
+          <img src="../assets/img/demos/epicerie-bocaux.webp" alt="Bocaux d'épices" class="w-full h-[340px] object-cover transition-transform duration-700 hover:scale-105" width="1024" height="1024" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <div class="text-center mt-10 reveal">
+        <p class="text-charcoal/50 max-w-2xl mx-auto text-sm">
+          Épicerie Peï Bio vous accueille dans un cadre lumineux et authentique.
+          Produits frais, épices, confitures, miels… et toujours du choix.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT / VISITE ==================== -->
+  <section id="contact" class="py-20 bg-white pattern-lines">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 reveal">
+        <span class="text-ash text-sm font-semibold uppercase tracking-[0.3em] font-body">— Nous trouver —</span>
+        <h2 class="font-title text-4xl md:text-5xl text-charcoal mt-2">Contact & visite</h2>
+        <div class="w-16 h-0.5 bg-aqua/60 mx-auto mt-4"></div>
+        <p class="mt-4 text-charcoal/50">Passez nous voir à Saint-André ou écrivez‑nous pour toute question.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+        <!-- Colonne gauche : infos + carte -->
+        <div class="bg-cyan/10 p-8 rounded-3xl border border-ash/20 flex flex-col space-y-6">
+          <div>
+            <h3 class="font-title text-3xl text-charcoal">Épicerie Peï Bio</h3>
+            <p class="text-charcoal/50 mt-1">Épicerie bio & locale</p>
+            <p class="text-charcoal/50">📍 2 Rue de la Mairie (fictif), Saint-André</p>
+          </div>
+          <div>
+            <p class="flex items-center gap-3"><span class="text-aqua text-xl">📞</span> <a href="tel:+262692123456" class="hover:text-aqua transition font-medium">+262 692 12 34 56</a></p>
+            <p class="flex items-center gap-3"><span class="text-aqua text-xl">✉️</span> <a href="mailto:contact@peibio.re" class="hover:text-aqua transition font-medium">contact@peibio.re</a></p>
+            <p class="flex items-center gap-3"><span class="text-aqua text-xl">💬</span> WhatsApp / Messenger</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-charcoal">Horaires d’ouverture</h4>
+            <p class="text-charcoal/50 text-sm">Mardi - Samedi : 8h - 18h</p>
+            <p class="text-charcoal/50 text-sm">Dimanche : 9h - 13h</p>
+            <p class="text-charcoal/50 text-sm">Lundi : fermé</p>
+          </div>
+          <div class="flex gap-4 text-2xl text-charcoal/30">
+            <span class="hover:text-aqua transition cursor-pointer">📷</span>
+            <span class="hover:text-aqua transition cursor-pointer">📘</span>
+            <span class="hover:text-aqua transition cursor-pointer">🐦</span>
+          </div>
+
+          <!-- ===== CARTE GOOGLE MAPS ===== -->
+          <div>
+            <h4 class="font-semibold text-charcoal mb-2">Retrouvez-nous</h4>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.073!2d55.291!3d-21.161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x218276bc0d1b2f4f%3A0x3f8c9e7b1a2d4c5e!2sMairie%20de%20Saint-Leu!5e0!3m2!1sfr!2sfr!4v1712345678901"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Carte Épicerie Peï Bio – Saint-André"
+              ></iframe>
+            </div>
+            <p class="text-xs text-charcoal/40 mt-2 italic">📍 Épicerie Peï Bio – 2 Rue de la Mairie (fictif) – Saint-André</p>
+          </div>
+        </div>
+
+        <!-- Colonne droite : formulaire -->
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="font-title text-2xl text-charcoal mb-4">Envoyez‑nous un message</h3>
+          <form id="contactForm" class="space-y-4">
+            <div>
+              <label for="champ-1" class="block text-sm font-medium text-charcoal/50">Nom complet</label>
+              <input id="champ-1" type="text" class="w-full px-4 py-3 rounded-xl input-nature" placeholder="Votre nom" required />
+            </div>
+            <div>
+              <label for="champ-2" class="block text-sm font-medium text-charcoal/50">Téléphone</label>
+              <input id="champ-2" type="tel" class="w-full px-4 py-3 rounded-xl input-nature" placeholder="06 92 12 34 56" required />
+            </div>
+            <div>
+              <label for="champ-3" class="block text-sm font-medium text-charcoal/50">Message</label>
+              <textarea id="champ-3" rows="4" class="w-full px-4 py-3 rounded-xl input-nature" placeholder="Votre demande..." required></textarea>
+            </div>
+            <button type="submit" class="w-full btn-aqua py-3.5 rounded-xl font-title text-lg shadow-lg transition">
+              Envoyer ✦
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-charcoal text-white/60 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-aqua text-xl">🌿</span>
+        <span class="font-title text-white text-xl">Épicerie Peï Bio</span>
+        <span class="text-white/20">|</span>
+        <span class="text-white/30">Saint-André</span>
+      </div>
+      <div class="flex gap-6 text-white/30 text-xs">
+        <a href="#top" class="hover:text-aqua transition">Mentions légales</a>
+        <a href="#top" class="hover:text-aqua transition">Confidentialité</a>
+        <a href="#top" class="hover:text-aqua transition">CGV</a>
+      </div>
+      <div class="text-white/20 text-xs">
+        © 2026 Épicerie Peï Bio — Site démo, informations fictives
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== STICKY CTA MOBILE ==================== -->
+  <div class="sticky-cta">
+    <a href="#contact" class="block btn-aqua text-charcoal text-center py-3.5 rounded-full font-title shadow-2xl transition text-base">
+      🌿 Visiter le magasin ✦
+    </a>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('✅ Votre message a bien été envoyé !\nNous vous répondrons rapidement.\n📍 Épicerie Peï Bio – Saint-André');
+      this.reset();
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

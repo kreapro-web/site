@@ -1,0 +1,395 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-cream text-ink font-body antialiased transition-colors duration-300 dark:bg-midnight-violet dark:text-cream;
+    animation: pageFadeIn 0.5s ease-out both;
+  }
+  @keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      animation: none;
+    }
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading font-bold tracking-tight text-midnight-violet dark:text-cream;
+  }
+  p:not(.section-eyebrow) {
+    @apply leading-relaxed;
+  }
+  ::selection {
+    @apply bg-willow-green text-midnight-violet;
+  }
+
+  /* Apparition douce au scroll : l'état masqué n'est appliqué que si le JS
+     confirme le support (voir main.js), pour ne jamais cacher le contenu
+     si le script ne se charge pas. */
+  [data-reveal].reveal-pending {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-full bg-willow-green px-6 py-3.5 font-semibold text-midnight-violet transition-all duration-300 ease-out hover:brightness-95 hover:scale-[1.02] hover:shadow-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-midnight-violet;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-full bg-blackberry-cream px-6 py-3.5 font-semibold text-cream transition-all duration-300 ease-out hover:brightness-110 hover:scale-[1.02] hover:shadow-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blackberry-cream;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-full border-2 border-midnight-violet/15 px-6 py-3.5 font-semibold text-midnight-violet transition-all duration-300 ease-out hover:border-midnight-violet/30 hover:bg-midnight-violet/5 dark:border-cream/20 dark:text-cream dark:hover:border-cream/40 dark:hover:bg-cream/5;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full bg-tea-green px-3 py-1 text-xs font-semibold uppercase tracking-wide text-midnight-violet;
+  }
+
+  .section-title {
+    @apply font-heading text-3xl font-bold tracking-tight text-midnight-violet sm:text-4xl dark:text-cream;
+  }
+
+  .section-eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-blackberry-cream dark:text-tea-green;
+  }
+
+  .card {
+    @apply rounded-xl2 bg-white/70 p-6 shadow-soft ring-1 ring-midnight-violet/5 backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-soft-lg dark:bg-white/[0.04] dark:ring-cream/10;
+  }
+
+  /* Tilt 3D + lueur au curseur sur les cartes : activé uniquement sur les
+     pages marquées data-fx sur <body>, pour ne pas changer le comportement
+     des pages qui n'en ont pas besoin (voir assets/js/main.js:initCardTilt). */
+  body[data-fx] .card {
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    position: relative;
+    overflow: hidden;
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+  }
+  body[data-fx] .card:hover {
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-6px);
+  }
+  body[data-fx] .card::before {
+    content: "";
+    position: absolute;
+    left: var(--mx);
+    top: var(--my);
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(192, 214, 132, 0.35), transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+    pointer-events: none;
+  }
+  body[data-fx] .card:hover::before {
+    opacity: 1;
+  }
+
+  /* Bouton CTA avec inclinaison 3D qui suit le curseur (voir
+     assets/js/main.js:initButtonTilt). Attribut dédié — ne touche pas au
+     hero d'index.html, qui a son propre data-tilt géré en inline. */
+  [data-tilt-btn] {
+    --rx: 0deg;
+    --ry: 0deg;
+    transform: perspective(600px) rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  [data-tilt-btn]:hover {
+    transform: perspective(600px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.02);
+  }
+
+  /* Révélation au défilement : titre en clip-path, cartes en rotation/échelle
+     (voir assets/js/main.js:initScrollDrivenReveal). */
+  .scroll-clip {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .scroll-clip.in-view {
+    clip-path: inset(0 0 0 0);
+  }
+  .scroll-card {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(22deg) scale(0.94);
+    transform-origin: center bottom;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--d, 0s);
+    will-change: transform, opacity;
+  }
+  .scroll-card.in-view {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) scale(1);
+  }
+  .scroll-card.in-view:hover {
+    transform: perspective(1200px) rotateX(0deg) scale(1.02) translateY(-6px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body[data-fx] .card,
+    [data-tilt-btn] {
+      transform: none !important;
+    }
+    .scroll-clip,
+    .scroll-card {
+      transition: none !important;
+      clip-path: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  .nav-link {
+    @apply relative text-sm font-semibold text-midnight-violet/80 transition-colors duration-300 hover:text-midnight-violet dark:text-cream/80 dark:hover:text-cream;
+  }
+
+  /* Ancien bouton WhatsApp à lien unique — encore utilisé par les pages projets/
+     (les autres pages utilisent .contact-fab ci-dessous). */
+  .whatsapp-float {
+    @apply fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-blackberry-cream px-5 py-3.5 text-sm font-semibold text-cream shadow-[0_10px_30px_-10px_rgba(61,11,55,0.15)] transition-all duration-200 hover:scale-[1.03] hover:brightness-110;
+  }
+
+  /* Bouton de contact flottant, extensible (WhatsApp / e-mail / téléphone)
+     (voir assets/js/main.js:initContactFab). */
+  .contact-fab {
+    @apply fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3;
+  }
+  .contact-fab-menu {
+    @apply flex flex-col items-end gap-2;
+  }
+  .contact-fab-item {
+    @apply inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2.5 text-sm font-semibold text-midnight-violet shadow-soft ring-1 ring-midnight-violet/10 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-soft-lg dark:bg-midnight-violet dark:text-cream dark:ring-cream/10;
+  }
+  .contact-fab-toggle {
+    @apply inline-flex h-14 w-14 items-center justify-center rounded-full bg-blackberry-cream text-cream shadow-soft transition-all duration-300 ease-out hover:brightness-110 hover:scale-[1.05] hover:shadow-soft-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blackberry-cream;
+  }
+
+  /* Bouton retour en haut de page — coin opposé au bouton de contact
+     (voir assets/js/main.js:initBackToTop). */
+  .back-to-top {
+    @apply fixed bottom-5 left-5 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-midnight-violet text-cream opacity-0 shadow-soft transition-all duration-300 ease-out pointer-events-none hover:brightness-110 hover:scale-105 hover:shadow-soft-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-midnight-violet dark:bg-cream dark:text-midnight-violet;
+  }
+  .back-to-top.is-visible {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  /* Barre de progression de lecture, épinglée au-dessus de tout le reste
+     (voir assets/js/main.js:initScrollProgress). */
+  .progress-bar {
+    @apply fixed left-0 top-0 z-[100] h-1 w-full bg-transparent;
+  }
+  .progress-bar-fill {
+    @apply h-full origin-left bg-willow-green transition-[width] duration-150 ease-out dark:bg-tea-green;
+    width: 0%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .progress-bar-fill {
+      transition: none;
+    }
+  }
+
+  /* Lien d'évitement — premier élément focusable de chaque page. */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-willow-green focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-midnight-violet focus:shadow-soft-lg;
+  }
+
+  /* Recherche du site — fenêtre modale (voir assets/js/main.js:initSiteSearch
+     et assets/js/search-index.js pour l'index des pages). */
+  .search-modal-backdrop {
+    @apply fixed inset-0 z-[90] flex items-start justify-center bg-midnight-violet/60 px-4 pt-24 backdrop-blur-sm;
+  }
+  .search-modal {
+    @apply w-full max-w-xl rounded-xl2 bg-cream p-5 shadow-soft-lg dark:bg-midnight-violet;
+  }
+  .search-modal-input {
+    @apply w-full rounded-full border-2 border-midnight-violet/15 bg-white/80 px-5 py-3 text-base text-ink outline-none transition-colors focus:border-midnight-violet/40 dark:border-cream/20 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/40;
+  }
+  .search-result {
+    @apply block rounded-xl px-4 py-3 transition-colors hover:bg-midnight-violet/5 dark:hover:bg-cream/5;
+  }
+
+  /* Bandeau d'information sur le stockage local (préférence de thème) —
+     voir assets/js/main.js:initStorageNotice. Positionné au-dessus des
+     boutons flottants (bottom-5) pour ne jamais leur voler le clic — le
+     conteneur externe ignore les clics, seule la pastille intérieure les capte. */
+  /* z-40 (sous les boutons flottants, z-50) : en cas de chevauchement visuel
+     sur un très petit écran, les boutons restent toujours au-dessus et
+     cliquables. pointer-events-none sur le conteneur + auto sur la pastille
+     évite par ailleurs tout blocage de clic, chevauchement ou non. */
+  .storage-notice {
+    @apply pointer-events-none fixed inset-x-0 bottom-5 z-40 justify-center px-4;
+  }
+  /* Fond opaque à 100 % (pas de /95 ni de flou) : un fond translucide + flou
+     laisse "fantômer" le texte des cartes en arrière-plan à travers la
+     pastille selon la position de scroll, ce qui brouille sa lisibilité. */
+  .storage-notice-inner {
+    @apply pointer-events-auto flex max-w-md flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-midnight-violet/10 bg-cream px-5 py-2.5 text-center text-xs text-ink/80 shadow-soft-lg dark:border-cream/10 dark:bg-midnight-violet dark:text-cream/80;
+  }
+
+  /* Onglets et boutons "Copier" — voir secretaire.html. */
+  .tab-btn {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-midnight-violet/10 px-4 py-2.5 text-sm font-semibold text-midnight-violet/70 transition-colors hover:border-midnight-violet/25 hover:text-midnight-violet;
+  }
+  .tab-btn.is-active {
+    @apply border-midnight-violet bg-midnight-violet text-cream hover:border-midnight-violet hover:text-cream;
+  }
+  .copy-btn {
+    @apply inline-flex shrink-0 items-center gap-1.5 rounded-full border border-midnight-violet/15 px-3 py-1.5 text-xs font-semibold text-midnight-violet transition-colors hover:bg-midnight-violet/5;
+  }
+
+  /* FAQ en accordéon natif (<details>/<summary>) — voir prix.html. */
+  .faq-item {
+    @apply rounded-xl2 border border-midnight-violet/10 bg-white/60 p-5 transition-colors dark:border-cream/10 dark:bg-white/5;
+  }
+  .faq-item summary {
+    @apply flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-base font-semibold text-midnight-violet dark:text-cream;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: "";
+    flex-shrink: 0;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.25s ease-out;
+  }
+  .faq-item[open] summary::after {
+    transform: rotate(-135deg);
+  }
+  .faq-item p {
+    @apply mt-3 text-sm text-ink/75 dark:text-cream/70;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-item summary::after {
+      transition: none;
+    }
+  }
+
+  /* Inscription newsletter dans le pied de page — voir assets/js/main.js
+     (initWeb3Form, réutilisé pour le formulaire de contact et celui-ci). */
+  .newsletter-input {
+    @apply w-full rounded-full border-2 border-cream/20 bg-white/10 px-5 py-3 text-sm text-cream outline-none transition-colors placeholder:text-cream/50 focus:border-willow-green sm:w-auto sm:flex-1;
+  }
+
+  /* Cascade douce pour les grilles de cards animées (jusqu'à 6 éléments visibles à la fois) */
+  [data-reveal-group] > [data-reveal]:nth-child(1) { animation-delay: 0ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(2) { animation-delay: 90ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(3) { animation-delay: 180ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(4) { animation-delay: 270ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(5) { animation-delay: 360ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(6) { animation-delay: 450ms; }
+}
+
+/* ===== Mode sombre — filet de sécurité =====
+   Les classes composants ci-dessus (@layer components) couvrent l'essentiel
+   des surfaces communes. Le contenu propre à chaque page pose ponctuellement
+   des utilitaires Tailwind bruts (bg-white/xx, text-ink/xx, text-midnight-violet,
+   text-blackberry-cream, border-midnight-violet/xx) sans qu'on ajoute dark: à
+   chaque occurrence individuellement sur ~25 pages. Ce filet applique la bonne
+   couleur en mode sombre via un sélecteur d'attribut ciblé, en complément —
+   jamais en remplacement — des classes composants. */
+/* :not([class*="dark:…"]) exclut les cas où un dark: du même utilitaire est
+   déjà posé explicitement dans le HTML (ex. dark:text-midnight-violet sur un
+   bouton à fond clair même en mode sombre) — sinon ce filet écraserait cette
+   surcharge volontaire et rendrait le texte illisible. */
+html.dark [class*="bg-white/"]:not(.card):not(.contact-fab-item):not([class*="dark:bg-white"]) {
+  background-color: rgba(243, 249, 210, 0.04);
+}
+html.dark [class*="text-ink"]:not([class*="dark:text-ink"]) {
+  color: rgba(243, 249, 210, 0.82);
+}
+html.dark [class*="text-midnight-violet"]:not(.badge):not(.contact-fab-item):not([class*="dark:text-midnight-violet"]) {
+  color: #F3F9D2;
+}
+html.dark [class*="text-blackberry-cream"]:not([class*="dark:text-blackberry-cream"]) {
+  color: #C9E4A6;
+}
+html.dark [class*="border-midnight-violet"]:not([class*="dark:border-midnight-violet"]) {
+  border-color: rgba(243, 249, 210, 0.12);
+}
+
+/* Grille "bento" de la page d'accueil (définie en <style> inline dans
+   index.html) — surcharge centralisée ici plutôt que dans la page, la
+   spécificité de html.dark l'emporte quel que soit l'ordre des balises. */
+html.dark .bento-card {
+  background: rgba(243, 249, 210, 0.06);
+  box-shadow: 0 20px 45px -18px rgba(0, 0, 0, 0.45);
+}
+html.dark .bento-card--feature {
+  background: linear-gradient(155deg, #2A0726, #3D0B37);
+}
+html.dark .bento-card--cta {
+  background: rgba(192, 214, 132, 0.1);
+}
+
+/* ===== Impression =====
+   Convention .no-print déjà utilisée dans devis-template.html, reprise ici
+   pour qu'elle s'applique automatiquement à toutes les pages qui chargent
+   cette feuille de style (bandeau Kap Numérik, en-tête, widgets flottants). */
+@media print {
+  .no-print,
+  [data-kap-numerik-banner],
+  header,
+  .contact-fab,
+  .back-to-top,
+  .progress-bar,
+  .storage-notice,
+  .search-modal-backdrop {
+    display: none !important;
+  }
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  .card,
+  table,
+  tr,
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #555;
+  }
+  @page {
+    margin: 16mm 14mm;
+  }
+}
