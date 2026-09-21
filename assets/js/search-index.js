@@ -7,32 +7,32 @@ window.KREAPRO_SEARCH_INDEX = [
   {
     title: "Accueil",
     url: "index.html",
-    description: "KréaPro crée votre site vitrine à La Réunion : simple, rapide, 100 % à vous, dès 1 200 €. Sites pour artisans, commerces et entrepreneurs.",
+    description: "KréaPro crée le site internet des artisans, commerces et entrepreneurs de La Réunion : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
   },
   {
     title: "Services",
     url: "services.html",
-    description: "Site vitrine, identité visuelle, landing page, réservation en ligne : nos services pour être visible à La Réunion. Devis clair, site 100 % à vous.",
+    description: "Site vitrine, identité visuelle, landing page et réservation en ligne pour artisans et commerces de La Réunion. SEO local inclus, site 100 % à vous.",
   },
   {
     title: "Tarifs",
     url: "prix.html",
-    description: "Tarifs clairs création site internet La Réunion : Salazie 1 200 €, Cilaos 2 100 €, Mafate 3 750 €. SEO local inclus, sans abonnement obligatoire.",
+    description: "Prix d'un site internet à La Réunion : 1 200 €, 2 100 € ou 3 750 €. SEO local inclus, aide Kap Numérik possible pour les artisans et commerces.",
   },
   {
     title: "Portfolio",
     url: "portfolio.html",
-    description: "Exemples de sites vitrines, identités visuelles et landing pages imaginés par KréaPro pour des entrepreneurs et commerces de La Réunion.",
+    description: "Exemples de sites vitrines pour artisans, restaurants, salons et commerces de La Réunion : ce que KréaPro peut créer pour votre activité.",
   },
   {
     title: "À propos",
     url: "a-propos.html",
-    description: "KréaPro aide les entrepreneurs et commerces de La Réunion à être visibles en ligne, avec des sites clairs et rapides, sans jargon technique.",
+    description: "KréaPro, agence web basée à Saint-Denis : des sites clairs et rapides pour les artisans et commerces de toute La Réunion, sans jargon technique.",
   },
   {
     title: "Contact",
     url: "contact.html",
-    description: "Parlons de votre site web ou identité visuelle à La Réunion. Réponse sous 24h, par formulaire, email ou WhatsApp.",
+    description: "Demandez votre devis gratuit pour un site internet à La Réunion. Réponse sous 24 h par formulaire, e-mail ou WhatsApp au +262 693 86 08 02.",
   },
   {
     title: "Mentions légales",
