@@ -291,10 +291,10 @@ function initSiteSearch() {
   if (!triggers.length || !backdrop || !input || !results) return;
 
   const index = window.KREAPRO_SEARCH_INDEX || [];
-  // Le site n'a qu'un seul niveau d'imbrication (racine + projets/) : l'index
-  // stocke des chemins depuis la racine, on ajoute "../" au besoin plutôt que
-  // des chemins absolus (le site reste ainsi déplaçable dans un sous-dossier).
-  const basePrefix = window.location.pathname.includes("/projets/") ? "../" : "";
+  // Le site n'a qu'un seul niveau d'imbrication (racine + projets/ + guides/) :
+  // l'index stocke des chemins depuis la racine, on ajoute "../" au besoin plutôt
+  // que des chemins absolus (le site reste ainsi déplaçable dans un sous-dossier).
+  const basePrefix = /\/(projets|guides)\//.test(window.location.pathname) ? "../" : "";
   let lastFocused = null;
 
   function render(items) {
