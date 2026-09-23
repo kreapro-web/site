@@ -172,12 +172,6 @@
     @apply relative text-sm font-semibold text-midnight-violet/80 transition-colors duration-300 hover:text-midnight-violet dark:text-cream/80 dark:hover:text-cream;
   }
 
-  /* Ancien bouton WhatsApp à lien unique — encore utilisé par les pages projets/
-     (les autres pages utilisent .contact-fab ci-dessous). */
-  .whatsapp-float {
-    @apply fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-blackberry-cream px-5 py-3.5 text-sm font-semibold text-cream shadow-[0_10px_30px_-10px_rgba(61,11,55,0.15)] transition-all duration-200 hover:scale-[1.03] hover:brightness-110;
-  }
-
   /* Bouton de contact flottant, extensible (WhatsApp / e-mail / téléphone)
      (voir assets/js/main.js:initContactFab). */
   .contact-fab {
