@@ -40,7 +40,7 @@
   <meta name="theme-color" content="#3D0B37" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <script type="application/ld+json">
@@ -103,12 +103,19 @@
     /* ===== Composants 3D — page d'accueil uniquement ===== */
 
     /* --- Hero : lueurs flottantes façon volcan/tropique, pas de grille --- */
-    .hero-3d { background: linear-gradient(180deg, #3D0B37 0%, #2A0726 100%); }
+    .hero-3d {
+      --mx: 50%; --my: 40%;
+      background: linear-gradient(180deg, #3D0B37 0%, #2A0726 100%);
+    }
     .hero-orb {
       position: absolute;
       z-index: 0;
       pointer-events: none;
-      will-change: transform;
+      will-change: transform, translate;
+      /* Parallaxe à la souris : propriété translate indépendante de
+         l'animation (transform), donc les deux se cumulent sans conflit. */
+      translate: var(--px, 0px) var(--py, 0px);
+      mix-blend-mode: screen;
     }
     /* Dégradé radial plutôt que filter:blur — même effet de lueur douce,
        sans le coût de recalcul d'un flou animé à chaque image. */
@@ -117,25 +124,25 @@
     .hero-orb--1 {
       top: -4%;
       left: -6%;
-      width: min(38vw, 460px);
-      height: min(38vw, 460px);
-      background: radial-gradient(circle, rgba(192, 214, 132, 0.4) 0%, rgba(192, 214, 132, 0) 70%);
+      width: min(48vw, 600px);
+      height: min(48vw, 600px);
+      background: radial-gradient(circle, rgba(192, 214, 132, 0.65) 0%, rgba(192, 214, 132, 0) 70%);
       animation: orbFloat1 17s ease-in-out infinite;
     }
     .hero-orb--2 {
       bottom: -8%;
       right: -4%;
-      width: min(34vw, 420px);
-      height: min(34vw, 420px);
-      background: radial-gradient(circle, rgba(99, 38, 74, 0.55) 0%, rgba(99, 38, 74, 0) 70%);
+      width: min(44vw, 560px);
+      height: min(44vw, 560px);
+      background: radial-gradient(circle, rgba(99, 38, 74, 0.6) 0%, rgba(99, 38, 74, 0) 70%);
       animation: orbFloat2 21s ease-in-out infinite;
     }
     .hero-orb--3 {
       top: 32%;
       right: 14%;
-      width: min(24vw, 300px);
-      height: min(24vw, 300px);
-      background: radial-gradient(circle, rgba(201, 228, 166, 0.35) 0%, rgba(201, 228, 166, 0) 70%);
+      width: min(30vw, 380px);
+      height: min(30vw, 380px);
+      background: radial-gradient(circle, rgba(201, 228, 166, 0.6) 0%, rgba(201, 228, 166, 0) 70%);
       animation: orbFloat3 13s ease-in-out infinite;
     }
     @keyframes orbFloat1 {
@@ -165,10 +172,11 @@
     .hero-3d-title {
       position: relative;
       z-index: 10;
-      font-family: "Poppins", "Inter", system-ui, sans-serif;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
       font-weight: 800;
       font-size: clamp(2.25rem, 6vw, 4.25rem);
-      line-height: 1.08;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
       color: #F3F9D2;
       max-width: 18ch;
       margin: 0 auto;
@@ -185,6 +193,28 @@
     @keyframes heroGradientShift {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
+    }
+    /* Projecteur de lave qui suit la souris + braises qui s'en écartent */
+    .hero-spot {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(260px circle at var(--mx) var(--my), rgba(201, 228, 166, 0.28), transparent 70%),
+        radial-gradient(640px circle at var(--mx) var(--my), rgba(192, 214, 132, 0.30), transparent 70%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .hero-3d.is-pointer .hero-spot { opacity: 1; }
+    .hero-embers {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
     [data-hero-in] {
       position: relative;
@@ -300,6 +330,8 @@
        dans src/input.css, partagés avec les autres pages du site. */
     @media (prefers-reduced-motion: reduce) {
       .hero-orb, .hero-3d-gradient, [data-hero-in] { animation: none !important; }
+      .hero-orb { translate: none !important; }
+      .hero-spot, .hero-embers { display: none !important; }
       [data-hero-in] { opacity: 1 !important; transform: none !important; }
       .btn-tilt-3d, .bento-card { transform: none !important; }
     }
@@ -393,6 +425,8 @@
       <div class="hero-orb hero-orb--2"></div>
       <div class="hero-orb hero-orb--3"></div>
       <div class="hero-3d-glow"></div>
+      <div class="hero-spot" aria-hidden="true"></div>
+      <canvas class="hero-embers" aria-hidden="true"></canvas>
       <div class="container-page relative flex flex-col items-center text-center">
         <p class="section-eyebrow justify-center !text-tea-green" data-hero-in style="--d:0s">
           <svg class="h-4 w-4"><use href="#icon-leaf" /></svg>
@@ -723,6 +757,103 @@
         });
       }
 
+      // Fond du hero réactif à la souris : lueurs en parallaxe (profondeurs
+      // différentes), projecteur qui suit le curseur, braises qui s'écartent.
+      function initHeroPointer() {
+        var hero = document.querySelector('.hero-3d');
+        if (!hero) return;
+        var orbs = [
+          { el: hero.querySelector('.hero-orb--1'), depth: 70 },
+          { el: hero.querySelector('.hero-orb--2'), depth: -55 },
+          { el: hero.querySelector('.hero-orb--3'), depth: 110 }
+        ];
+        var target = { x: 0.5, y: 0.4 }, cur = { x: 0.5, y: 0.4 };
+        var canvas = hero.querySelector('.hero-embers');
+        var ctx = canvas && canvas.getContext('2d');
+        var embers = [], W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var active = false, visible = true, raf = 0;
+
+        function resize() {
+          var r = hero.getBoundingClientRect();
+          W = r.width; H = r.height;
+          if (!ctx) return;
+          canvas.width = W * dpr; canvas.height = H * dpr;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          var n = Math.round(Math.min(70, W / 18));
+          embers = [];
+          for (var i = 0; i < n; i++) {
+            embers.push({
+              x: Math.random() * W, y: Math.random() * H,
+              vx: (Math.random() - 0.5) * 0.2, vy: -0.15 - Math.random() * 0.45,
+              r: 0.8 + Math.random() * 2.2,
+              hue: Math.random() < 0.6 ? '192,214,132' : '201,228,166',
+              a: 0.35 + Math.random() * 0.5
+            });
+          }
+        }
+
+        function frame() {
+          raf = 0;
+          cur.x += (target.x - cur.x) * 0.08;
+          cur.y += (target.y - cur.y) * 0.08;
+          var dx = cur.x - 0.5, dy = cur.y - 0.5;
+          orbs.forEach(function (o) {
+            if (!o.el) return;
+            o.el.style.setProperty('--px', (dx * o.depth).toFixed(1) + 'px');
+            o.el.style.setProperty('--py', (dy * o.depth).toFixed(1) + 'px');
+          });
+          hero.style.setProperty('--mx', (cur.x * 100).toFixed(2) + '%');
+          hero.style.setProperty('--my', (cur.y * 100).toFixed(2) + '%');
+
+          if (ctx) {
+            ctx.clearRect(0, 0, W, H);
+            var mx = cur.x * W, my = cur.y * H;
+            embers.forEach(function (e) {
+              if (active) {
+                var ex = e.x - mx, ey = e.y - my, d2 = ex * ex + ey * ey;
+                if (d2 < 22500) { // rayon 150px : la braise est repoussée
+                  var f = (1 - Math.sqrt(d2) / 150) * 0.9;
+                  e.vx += (ex / (Math.sqrt(d2) + 1)) * f;
+                  e.vy += (ey / (Math.sqrt(d2) + 1)) * f;
+                }
+              }
+              e.vx *= 0.94; e.vy = e.vy * 0.94 + (-0.3 - e.vy) * 0.03;
+              e.x += e.vx; e.y += e.vy;
+              if (e.y < -10) { e.y = H + 10; e.x = Math.random() * W; }
+              if (e.x < -10) e.x = W + 10; else if (e.x > W + 10) e.x = -10;
+              ctx.beginPath();
+              ctx.fillStyle = 'rgba(' + e.hue + ',' + e.a + ')';
+              ctx.shadowColor = 'rgba(' + e.hue + ',0.9)';
+              ctx.shadowBlur = 8;
+              ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+              ctx.fill();
+            });
+          }
+          if (visible) raf = requestAnimationFrame(frame);
+        }
+
+        hero.addEventListener('pointermove', function (e) {
+          var r = hero.getBoundingClientRect();
+          target.x = (e.clientX - r.left) / r.width;
+          target.y = (e.clientY - r.top) / r.height;
+          if (!active) { active = true; hero.classList.add('is-pointer'); }
+        });
+        hero.addEventListener('pointerleave', function () {
+          active = false; hero.classList.remove('is-pointer');
+          target.x = 0.5; target.y = 0.4;
+        });
+        // Ne calcule rien quand le hero est hors de l'écran.
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            if (visible && !raf) raf = requestAnimationFrame(frame);
+          }).observe(hero);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+        raf = requestAnimationFrame(frame);
+      }
+
       function initBentoTilt() {
         var cards = document.querySelectorAll('[data-bento-tilt]');
         cards.forEach(function (card) {
@@ -750,6 +881,7 @@
 
       document.addEventListener('DOMContentLoaded', function () {
         var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reducedMotion) initHeroPointer();
         if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
           initHeroCTATilt();
           initBentoTilt();
