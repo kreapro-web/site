@@ -13,8 +13,8 @@ module.exports = {
         ink: "#1A1A1A",
       },
       fontFamily: {
-        heading: ["Poppins", "Inter", "system-ui", "sans-serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
+        heading: ["\"Bricolage Grotesque\"", "system-ui", "sans-serif"],
+        body: ["\"DM Sans\"", "system-ui", "sans-serif"],
       },
       borderRadius: {
         xl2: "1.5rem",
