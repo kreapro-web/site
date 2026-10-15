@@ -7,7 +7,7 @@ window.KREAPRO_SEARCH_INDEX = [
   {
     title: "Accueil",
     url: "index.html",
-    description: "KréaPro crée le site internet des artisans, commerces et entrepreneurs de La Réunion : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
+    description: "KréaPro crée le site internet des artisans, commerces et entrepreneurs de La Réunion : simple, rapide, référencé localement, dès 790 €. Devis gratuit.",
   },
   {
     title: "Services",
@@ -17,7 +17,7 @@ window.KREAPRO_SEARCH_INDEX = [
   {
     title: "Tarifs",
     url: "prix.html",
-    description: "Prix d'un site internet à La Réunion : 1 200 €, 2 100 € ou 3 750 €. SEO local inclus, aide Kap Numérik possible pour les artisans et commerces.",
+    description: "Prix d'un site internet à La Réunion : 790 €, 1 490 € ou 2 690 €. SEO local inclus, site 100 % à vous, sans abonnement obligatoire.",
   },
   {
     title: "Portfolio",
@@ -95,19 +95,14 @@ window.KREAPRO_SEARCH_INDEX = [
     description: "Combien coûte réellement un site internet à La Réunion ? Fourchettes de prix, ce qui fait varier la facture, coûts cachés à éviter et aides disponibles.",
   },
   {
-    title: "Guide — Aide Kap Numérik",
-    url: "guides/aide-kap-numerik-site-internet.html",
-    description: "Kap Numérik : le dispositif de la Région Réunion qui finance jusqu'à 80 % d'un site internet pour les artisans et petites entreprises. Conditions, montants, démarches.",
-  },
-  {
     title: "Guide — Site internet à Saint-Pierre",
     url: "guides/site-internet-saint-pierre.html",
-    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-Pierre : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
+    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-Pierre : simple, rapide, référencé localement, dès 790 €. Devis gratuit.",
   },
   {
     title: "Guide — Site internet pour plombier",
     url: "guides/site-internet-plombier.html",
-    description: "Pourquoi un plombier à La Réunion a besoin d'un site internet, ce qu'il doit absolument contenir, et un exemple concret. Devis gratuit, dès 1 200 €.",
+    description: "Pourquoi un plombier à La Réunion a besoin d'un site internet, ce qu'il doit absolument contenir, et un exemple concret. Devis gratuit, dès 790 €.",
   },
   {
     title: "Guide — Site internet ou Google Business Profile",
@@ -117,32 +112,32 @@ window.KREAPRO_SEARCH_INDEX = [
   {
     title: "Guide — Site internet à Saint-Denis",
     url: "guides/site-internet-saint-denis.html",
-    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-Denis : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
+    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-Denis : simple, rapide, référencé localement, dès 790 €. Devis gratuit.",
   },
   {
     title: "Guide — Site internet à Saint-Paul",
     url: "guides/site-internet-saint-paul.html",
-    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-Paul : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
+    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-Paul : simple, rapide, référencé localement, dès 790 €. Devis gratuit.",
   },
   {
     title: "Guide — Site internet à Saint-André",
     url: "guides/site-internet-saint-andre.html",
-    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-André : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
+    description: "KréaPro crée des sites internet pour les artisans et commerces de Saint-André : simple, rapide, référencé localement, dès 790 €. Devis gratuit.",
   },
   {
     title: "Guide — Site internet au Tampon",
     url: "guides/site-internet-le-tampon.html",
-    description: "KréaPro crée des sites internet pour les artisans et commerces du Tampon : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
+    description: "KréaPro crée des sites internet pour les artisans et commerces du Tampon : simple, rapide, référencé localement, dès 790 €. Devis gratuit.",
   },
   {
     title: "Guide — Site internet à La Possession",
     url: "guides/site-internet-la-possession.html",
-    description: "KréaPro crée des sites internet pour les artisans et commerces de La Possession : simple, rapide, référencé localement, dès 1 200 €. Devis gratuit.",
+    description: "KréaPro crée des sites internet pour les artisans et commerces de La Possession : simple, rapide, référencé localement, dès 790 €. Devis gratuit.",
   },
   {
     title: "Guide — Site internet pour salon de coiffure",
     url: "guides/site-internet-coiffeur.html",
-    description: "Pourquoi un salon de coiffure à La Réunion a besoin d'un site avec prise de rendez-vous en ligne, et un exemple concret. Devis gratuit, dès 1 200 €.",
+    description: "Pourquoi un salon de coiffure à La Réunion a besoin d'un site avec prise de rendez-vous en ligne, et un exemple concret. Devis gratuit, dès 790 €.",
   },
   {
     title: "Guide — Site internet pour consultant",
@@ -157,11 +152,11 @@ window.KREAPRO_SEARCH_INDEX = [
   {
     title: "Guide — Site internet pour restaurant",
     url: "guides/site-internet-restaurant.html",
-    description: "Pourquoi un restaurant à La Réunion a besoin d'un site avec réservation en ligne, et un exemple concret. Devis gratuit, dès 1 200 €.",
+    description: "Pourquoi un restaurant à La Réunion a besoin d'un site avec réservation en ligne, et un exemple concret. Devis gratuit, dès 790 €.",
   },
   {
     title: "Guide — Site internet pour traiteur",
     url: "guides/site-internet-traiteur.html",
-    description: "Pourquoi un traiteur à La Réunion a besoin d'un site pour présenter ses formules et recevoir des demandes de devis en ligne. Devis gratuit, dès 1 200 €.",
+    description: "Pourquoi un traiteur à La Réunion a besoin d'un site pour présenter ses formules et recevoir des demandes de devis en ligne. Devis gratuit, dès 790 €.",
   },
 ];

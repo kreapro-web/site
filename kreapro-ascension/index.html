@@ -367,12 +367,8 @@ footer.foot{position:relative;z-index:2;text-align:center;padding:0 16px 28px;fo
         <p class="lead">La nuit tombe sur Mafate. Choisissez votre formule avant la dernière montée. Des tarifs clairs, affichés dès le départ, toutes taxes comprises.</p>
         <div class="task">
           <p class="task-h"><span class="n">4</span>Choisissez votre formule</p>
-          <div class="kap">
-            <button class="switch" id="kap" role="switch" aria-checked="true" aria-labelledby="kapl" aria-describedby="kapn"></button>
-            <p id="kapl"><b>Avec l'aide Kap Numérik</b> (Région Réunion / UE)</p>
-          </div>
           <fieldset class="offers" id="offers"><legend class="sr">Formule</legend></fieldset>
-          <p class="hint" id="kapn">Aide Kap Numérik : jusqu'à 80 % pour les structures de 0 à 9 salariés (plafond 3 200 €), 50 % de 10 à 19 salariés (plafond 2 000 €), sous conditions d'éligibilité. Le dossier doit être déposé avant tout début de prestation : on vous accompagne. Non garanti par KréaPro.</p>
+          <p class="hint">Aide Kap Numérik de la Région Réunion : en pause pour le moment.</p>
         </div>
         <div class="row">
           <button class="btn btn-p next" data-next="5" aria-describedby="gate4">Dernière montée : Piton des Neiges · 3 070 m <span class="arr" aria-hidden="true">→</span></button>
@@ -456,11 +452,11 @@ footer.foot{position:relative;z-index:2;text-align:center;padding:0 16px 28px;fo
     <section><h3>Notre méthode</h3><ol><li><b>Comprendre</b> votre activité et ce que vos clients cherchent vraiment.</li><li><b>Concevoir</b> un site clair et rapide, pensé d'abord pour le mobile.</li><li><b>Livrer</b> votre site, avec le référencement local et un vrai suivi après la mise en ligne.</li></ol><p style="margin-top:6px">Aucun acompte : vous payez à la livraison, une fois le site validé et les accès remis.</p></section>
     <section><h3>Nos formules (TTC)</h3>
       <div class="ess-price">
-        <div><span><b>Salazie</b> · site vitrine · 2 à 3 semaines</span><span>1 200 € · dès 240 € avec aide*</span></div>
-        <div><span><b>Cilaos</b> · 4 à 6 pages · recommandée · 3 à 5 semaines</span><span>2 100 € · dès 420 € avec aide*</span></div>
-        <div><span><b>Mafate</b> · 8 à 12 pages · 6 à 8 semaines</span><span>3 750 € · dès 750 € avec aide*</span></div>
+        <div><span><b>Salazie</b> · site vitrine · 2 à 3 semaines</span><span>790 €</span></div>
+        <div><span><b>Cilaos</b> · 4 à 6 pages · recommandée · 3 à 5 semaines</span><span>1 490 €</span></div>
+        <div><span><b>Mafate</b> · 8 à 12 pages · 6 à 8 semaines</span><span>2 690 €</span></div>
       </div>
-      <p style="margin-top:8px">* Aide Kap Numérik (Région Réunion / UE) : jusqu'à 80 % pour 0 à 9 salariés, sous conditions d'éligibilité, dossier à déposer avant tout début de prestation. Non garanti par KréaPro.</p>
+      <p style="margin-top:8px">Aide Kap Numérik de la Région Réunion : en pause pour le moment.</p>
     </section>
     <section><h3>Nous contacter</h3><p>Email : <b>contact@kreapro.re</b> · Téléphone / WhatsApp : <b>+262 693 86 08 02</b><br>Lun–Ven, 9 h–18 h · réponse sous 24 h.</p></section>
     <div class="row"><a class="btn btn-s" href="https://wa.me/262693860802?text=Bonjour%20KréaPro%2C%20je%20souhaite%20discuter%20d%27un%20projet." target="_blank" rel="noopener">Écrire sur WhatsApp <span class="arr" aria-hidden="true">↗</span></a><button class="btn btn-p" id="ess-play">Faire l'ascension quand même</button></div>
@@ -506,14 +502,14 @@ const STEPS=[
   "Vous validez, on vous remet tous les accès : vous payez seulement à ce moment-là."
 ];
 const OFFERS=[
-  {id:"salazie",l:"Salazie",d:"Le site vitrine indispensable · 2 à 3 semaines",sh:"site vitrine",p:1200,a:240,pages:["Accueil","Services","Contact"]},
-  {id:"cilaos",l:"Cilaos",d:"4 à 6 pages, devis en ligne, avis clients · 3 à 5 semaines",sh:"4 à 6 pages",p:2100,a:420,reco:true,pages:["Accueil","Services","Galerie","Avis","Devis"]},
-  {id:"mafate",l:"Mafate",d:"8 à 12 pages, réservation, blog, formation · 6 à 8 semaines",sh:"8 à 12 pages",p:3750,a:750,pages:["Accueil","Services","Zones","Blog","Réserver","+4"]}
+  {id:"salazie",l:"Salazie",d:"Le site vitrine indispensable · 2 à 3 semaines",sh:"site vitrine",p:790,pages:["Accueil","Services","Contact"]},
+  {id:"cilaos",l:"Cilaos",d:"4 à 6 pages, devis en ligne, avis clients · 3 à 5 semaines",sh:"4 à 6 pages",p:1490,reco:true,pages:["Accueil","Services","Galerie","Avis","Devis"]},
+  {id:"mafate",l:"Mafate",d:"8 à 12 pages, réservation, blog, formation · 6 à 8 semaines",sh:"8 à 12 pages",p:2690,pages:["Accueil","Services","Zones","Blog","Réserver","+4"]}
 ];
 const LOOT=[{l:"Votre nom en ligne",lv:1},{l:"Vos couleurs",lv:2},{l:"Un site 100 % à vous",lv:3},{l:"Vos pages",lv:4},{l:"Votre site en ligne",lv:5}];
 
 const KEY="kreapro-ascension-v1";
-const FRESH=()=>({lv:0,max:0,trade:null,biz:"",pal:null,order:[],offer:null,kap:true});
+const FRESH=()=>({lv:0,max:0,trade:null,biz:"",pal:null,order:[],offer:null});
 let S=FRESH();
 try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&typeof x==="object")S={...S,...x}}catch(e){}
 if(!Array.isArray(S.order))S.order=[];
@@ -606,7 +602,7 @@ $("#palettes").insertAdjacentHTML("beforeend",PALETTES.map(p=>`<label class="chi
 function renderOffers(){
   $("#offers").innerHTML=`<legend class="sr">Formule</legend>`+OFFERS.map(o=>`<label class="offer"><input type="radio" name="offer" id="of-${o.id}" value="${o.id}" ${S.offer===o.id?"checked":""}>
     <span class="o"><span class="oname">${o.l}${o.reco?'<span class="reco">Recommandée</span>':""}</span><span class="od">${o.d}</span>
-    <span class="price">${S.kap?`<s><span class="sr">au lieu de </span>${euro(o.p)}</s>dès ${euro(o.a)}`:euro(o.p)}</span></span></label>`).join("");
+    <span class="price">${euro(o.p)}</span></span></label>`).join("");
   $$("#offers input").forEach(r=>r.addEventListener("change",()=>{S.offer=r.value;save();update();announce(`Formule ${OFFERS.find(o=>o.id===r.value).l} choisie.`)}));
 }
 const shuffled=[2,0,3,1];
@@ -664,7 +660,7 @@ function recap(){
   const txt=`Bonjour KréaPro,
 Mon activité : ${t?t.l.toLowerCase():"à préciser"}${S.biz.trim()?` (${S.biz.trim()})`:""}.
 Ambiance choisie : ${p?p.l:"à définir"}.
-Formule qui m'intéresse : ${o?`${o.l} (${o.sh})`:"à définir"}${S.kap?", avec l'aide Kap Numérik si je suis éligible":""}.
+Formule qui m'intéresse : ${o?`${o.l} (${o.sh})`:"à définir"}.
 Je souhaite un devis gratuit.`;
   $("#recap").textContent=txt;
   $("#wa").href="https://wa.me/262693860802?text="+encodeURIComponent(txt);
@@ -695,12 +691,11 @@ $("#brand").addEventListener("click",e=>{e.preventDefault();goTo(0)});
 $("#nudge").addEventListener("click",e=>{e.currentTarget.classList.remove("show");$("#pv").open=true;$("#pvw").scrollIntoView({behavior:RM?"auto":"smooth",block:"start"})});
 $("#restart").addEventListener("click",()=>{S=FRESH();save();lastGot=-1;{const nd=$("#nudge");clearTimeout(nd._t);nd.classList.remove("show")}
   $$('input[type="radio"]').forEach(r=>r.checked=false);$("#biz").value="";$("#fb").textContent="";$("#toast").textContent="";$("#copy").textContent="Copier ma demande";
-  renderSteps();renderOffers();$("#kap").setAttribute("aria-checked","true");goTo(0)});
+  renderSteps();renderOffers();goTo(0)});
 
 $$('input[name="trade"]').forEach(r=>r.addEventListener("change",()=>{S.trade=r.value;save();update();announce(`${TRADES.find(t=>t.id===r.value).l} : votre nom apparaît sur votre site.`)}));
 $("#biz").addEventListener("input",e=>{S.biz=e.target.value;save();update()});
 $$('input[name="pal"]').forEach(r=>r.addEventListener("change",()=>{S.pal=r.value;save();update();announce(`Ambiance ${PALETTES.find(p=>p.id===r.value).l} appliquée à votre site.`)}));
-$("#kap").addEventListener("click",e=>{S.kap=!S.kap;e.currentTarget.setAttribute("aria-checked",S.kap);save();renderOffers();recap()});
 $("#copy").addEventListener("click",()=>{
   const txt=$("#recap").textContent;
   const ok=()=>{$("#toast").textContent="Demande copiée. Collez-la dans votre email à contact@kreapro.re.";$("#copy").textContent="Copié ✓"};
@@ -773,7 +768,6 @@ function leaves(){
 if(S.trade){const r=$("#tr-"+S.trade);r&&(r.checked=true)}
 if(S.pal){const r=$("#pa-"+S.pal);r&&(r.checked=true)}
 $("#biz").value=S.biz||"";
-$("#kap").setAttribute("aria-checked",S.kap);
 renderSteps();renderOffers();
 drawRidges(cur);goTo(S.lv,{focus:false});
 })();
